@@ -4,20 +4,28 @@ import { db } from "~/server/db";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const models3d = await db.query.models3d.findMany();
+  const models3d = await db.query.models3d.findMany({
+    orderBy: (model, { desc }) => desc(model.createdAt),
+  });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          <span className="text-[hsl(280,100%,70%)]">My shit</span>
-        </h1>
-        {models3d.map((model3d) => (
-          <div key={model3d.id}>
-            <h2 className="text-2xl font-bold">{model3d.name}</h2>
-          </div>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="mb-6 text-3xl font-bold">3D Models Gallery</h1>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {models3d.map((model) => (
+          <Link href={`/models/${model.id}`} key={model.id}>
+            <div className="overflow-hidden rounded-lg bg-white shadow-md transition-transform hover:scale-105">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="p-4">
+                <h2 className="mb-2 text-xl font-semibold">{model.name}</h2>
+                <p className="text-sm text-gray-600">
+                  Created: {new Date(model.createdAt).toLocaleDateString()}
+                </p>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

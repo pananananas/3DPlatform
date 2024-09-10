@@ -5,9 +5,9 @@
 - [x] deploy on vercel
 - [x] setup database
 
-- [ ] db update to include 3d models
+- [x] db update to include 3d models
 
-- [ ] page with list of models 3d models
+- [x] page with list of models 3d models
 - [ ] rendering 3d using react three fiber
 - [ ] page with 3d model viewer
 - [ ] connect to replicate
