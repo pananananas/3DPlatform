@@ -12,12 +12,16 @@
 - [ ] page with 3d model viewer
 - [ ] connect to replicate
 
-Later:
-
 - [x] add auth
 - [ ] add uploadthing
+- [ ] add "add model" form
+
+- [ ] reroute "models" to models/view or something
+- [ ] add side menus to model display
+- [ ] move model list to "/models" route
+- [ ] add placeholder landing page
+- [ ] display model previews
+- [ ] add sidebars to model display 
 
 
-
-name 3dmodel isnt accepted in the database because it  starts with a number. I will change it to model3d
-```
+- [ ] add scenes support to display multiple models

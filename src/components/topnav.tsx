@@ -2,6 +2,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
+import { dark } from "@clerk/themes";
 
 export function TopNav() {
   return (
@@ -37,7 +38,11 @@ export function TopNav() {
           </SignedOut>
           <SignedIn>
             <Button variant="outline" size="icon" className="rounded-full">
-              <UserButton />
+              <UserButton
+                appearance={{
+                  baseTheme: dark,
+                }}
+              />
             </Button>
           </SignedIn>
           <ThemeToggle />

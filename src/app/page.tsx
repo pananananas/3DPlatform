@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { db } from "~/server/db";
+import { SignedIn } from "@clerk/nextjs";
+import { UploadDropzone } from "~/utils/uploadthing";
 import {
   Card,
   CardContent,
@@ -8,13 +12,15 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
+import { useRouter } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const models3d = await db.query.models3d.findMany({
     orderBy: (model, { desc }) => desc(model.createdAt),
   });
+  const router = useRouter();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -35,6 +41,26 @@ export default async function HomePage() {
             </Card>
           </Link>
         ))}
+      </div>
+      <div className="py-6">
+        <SignedIn>
+          <Card className="rounded-md">
+            <CardHeader>
+              <CardTitle>Add model</CardTitle>
+              <CardDescription>
+                Click here to upload a new 3D model
+              </CardDescription>
+              <CardContent>
+                <UploadDropzone
+                  endpoint="model3dUploader"
+                  onClientUploadComplete={() => {
+                    router.refresh();
+                  }}
+                />
+              </CardContent>
+            </CardHeader>
+          </Card>
+        </SignedIn>
       </div>
     </div>
   );
