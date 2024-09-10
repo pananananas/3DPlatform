@@ -8,13 +8,13 @@
 - [x] db update to include 3d models
 
 - [x] page with list of models 3d models
-- [ ] rendering 3d using react three fiber
+- [x] rendering 3d using react three fiber
 - [ ] page with 3d model viewer
 - [ ] connect to replicate
 
 Later:
 
-- [ ] add auth
+- [x] add auth
 - [ ] add uploadthing
 
 
