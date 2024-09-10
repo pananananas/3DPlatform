@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { dark } from "@clerk/themes";
+import { IconBox } from "./icons/icon-box";
 
 export function TopNav() {
   return (
@@ -13,21 +14,8 @@ export function TopNav() {
             variant="ghost"
             className="flex flex-row items-center justify-center gap-3 p-2"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-              />
-            </svg>
-            <h1 className="text-xl font-bold">3D Platform</h1>
+            <IconBox />
+            <h1 className="text-lg md:text-xl font-bold">3D Platform</h1>
           </Button>
         </Link>
         <div className="flex flex-row items-center justify-center gap-4">
@@ -44,6 +32,9 @@ export function TopNav() {
                 }}
               />
             </Button>
+            <Link href="/profile">
+              <Button variant="outline">Profile</Button>
+            </Link>
           </SignedIn>
           <ThemeToggle />
         </div>

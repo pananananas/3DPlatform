@@ -13,8 +13,8 @@
 - [ ] connect to replicate
 
 - [x] add auth
-- [ ] add uploadthing
-- [ ] add "add model" form
+- [x] add uploadthing 
+- [ ] "add model" form, with option to change default name
 
 - [ ] reroute "models" to models/view or something
 - [ ] add side menus to model display

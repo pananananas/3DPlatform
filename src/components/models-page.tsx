@@ -16,8 +16,7 @@ export function ModelsPage({ models3d }: Models) {
   const router = useRouter();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">3D Models Gallery</h1>
+    <>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {models3d.map((model) => (
           <Link href={`/models/${model.id}`} key={model.id}>
@@ -43,6 +42,7 @@ export function ModelsPage({ models3d }: Models) {
               </CardDescription>
               <CardContent>
                 <UploadDropzone
+                  className="ut-label:text-m ut-button:bg-neutral-800 ut-button:text-neutral-200 dark:ut-button:bg-neutral-200 dark:ut-button:text-neutral-900 ut-label:text-neutral-900 dark:ut-label:text-neutral-100 ut-button:ut-uploading:after:bg-neutral-900 p-3 dark:border-neutral-700"
                   endpoint="model3dUploader"
                   onClientUploadComplete={() => {
                     router.refresh();
@@ -53,6 +53,6 @@ export function ModelsPage({ models3d }: Models) {
           </Card>
         </SignedIn>
       </div>
-    </div>
+    </>
   );
 }
