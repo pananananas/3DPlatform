@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { db } from "~/server/db";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 
 export const dynamic = "force-dynamic";
 
@@ -14,15 +22,17 @@ export default async function HomePage() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {models3d.map((model) => (
           <Link href={`/models/${model.id}`} key={model.id}>
-            <div className="overflow-hidden rounded-lg bg-white shadow-md transition-transform hover:scale-105">
-              <div className="h-48 bg-gray-200"></div>
-              <div className="p-4">
-                <h2 className="mb-2 text-xl font-semibold">{model.name}</h2>
-                <p className="text-sm text-gray-600">
+            <Card className="rounded-md">
+              {/* <CardContent>
+                <p>Card Content</p>
+              </CardContent> */}
+              <CardHeader>
+                <CardTitle>{model.name}</CardTitle>
+                <CardDescription>
                   Created: {new Date(model.createdAt).toLocaleDateString()}
-                </p>
-              </div>
-            </div>
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </Link>
         ))}
       </div>

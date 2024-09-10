@@ -3,6 +3,7 @@ import { type Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TopNav } from "~/components/topnav";
+import { ThemeProvider } from "~/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "3D Platform",
@@ -17,8 +18,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={`${GeistMono.variable}`}>
         <body>
-          <TopNav />
-          {children}
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <TopNav />
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
