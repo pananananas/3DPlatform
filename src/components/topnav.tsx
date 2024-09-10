@@ -4,6 +4,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { dark } from "@clerk/themes";
 import { IconBox } from "./icons/icon-box";
+import { AddModelDialog } from "./add-model-dialog";
 
 export function TopNav() {
   return (
@@ -32,6 +33,7 @@ export function TopNav() {
                 }}
               />
             </Button>
+            <AddModelDialog />
             <Link href="/profile">
               <Button variant="outline">Profile</Button>
             </Link>

@@ -1,8 +1,9 @@
 import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
-import { ClerkProvider } from "@clerk/nextjs";
 import { TopNav } from "~/components/topnav";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
             <TopNav />
             {children}
           </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

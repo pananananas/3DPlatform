@@ -24,7 +24,7 @@ export default function ModelPage({ params }: { params: { id: string } }) {
         <Model url={modelUrl} />
         <OrbitControls />
         <Environment background blur={0.75}>
-          <color attach="background"  />
+          <color attach="background" args={["#121212"]} />
           <Lightformer
             intensity={2}
             color="white"
