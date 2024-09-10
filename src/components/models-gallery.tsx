@@ -8,12 +8,10 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
 import { toast } from "sonner";
-import { AddModelDialog } from "./add-model-dialog";
 
 export function ModelsGallery({ models3d }: Models) {
   const router = useRouter();
@@ -47,8 +45,17 @@ export function ModelsGallery({ models3d }: Models) {
                   className="ut-label:text-m ut-button:bg-neutral-800 ut-button:text-neutral-200 dark:ut-button:bg-neutral-200 dark:ut-button:text-neutral-900 ut-label:text-neutral-900 dark:ut-label:text-neutral-100 ut-button:ut-uploading:after:bg-neutral-900 p-3 dark:border-neutral-700"
                   endpoint="model3dUploader"
                   onClientUploadComplete={() => {
-                    toast("Model uploaded successfully");
+                    toast("Model uploaded successfully!", {
+                      description: "Added model to gallery.",
+                      action: {
+                        label: "Close",
+                        onClick: () => console.log("Undo"),
+                      },
+                    });
                     router.refresh();
+                  }}
+                  onUploadError={(error: Error) => {
+                    alert(`ERROR! ${error.message}`);
                   }}
                 />
               </CardContent>
