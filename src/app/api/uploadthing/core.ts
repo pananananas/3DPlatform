@@ -16,21 +16,21 @@ export const ourFileRouter = {
       const user = auth();
 
       // If you throw, the user will not be able to upload
-      if (!user.userId) throw new UploadThingError("Unauthorized");
+      if (!user.userId) throw new Error("Unauthorized");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
       // This code RUNS ON YOUR SERVER after upload
-      console.log("Upload complete for userId:", metadata.userId);
 
-      console.log("file url", file.url);
+      const filename = file.name;
 
       await db.insert(models3d).values({
-        name: file.name,
+        name: filename,
         url: file.url,
         fileKey: file.key,
+        userId: metadata.userId,
       });
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
@@ -39,3 +39,6 @@ export const ourFileRouter = {
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
+
+// https://utfs.io/f/39b96c6c-d41b-4969-acd4-fc837bdb9c1a-1t8nbd.glb
+// 39b96c6c-d41b-4969-acd4-fc837bdb9c1a-1t8nbd.glb
