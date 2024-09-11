@@ -46,29 +46,29 @@ export function TopNav() {
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50 w-full p-2">
-      <nav className="flex flex-col rounded-md border bg-background/85 p-2 text-xl font-semibold shadow-md backdrop-blur-sm">
+      <nav className="flex flex-col rounded-md border bg-background/85 p-2 text-xl font-semibold backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="p-0">
-              <Link
-                href={"/models"}
+            <Link href={"/models"}>
+              <Button
+                variant="ghost"
                 className="flex flex-row items-center justify-center gap-3 p-2"
               >
                 <IconBox />
                 <h1 className="text-lg font-bold md:text-xl">3D Platform</h1>
-              </Link>
-            </Button>
+              </Button>
+            </Link>
             <div className="hidden md:flex md:flex-row md:items-center md:gap-2">
-              <Button variant="ghost">
-                <Link href="/models">Models</Link>
-              </Button>
-              <Button variant="ghost">
-                <Link href="/scenes">Scenes</Link>
-              </Button>
+              <Link href="/models">
+                <Button variant="ghost">Models</Button>
+              </Link>
+              <Link href="/scenes">
+                <Button variant="ghost">Scenes</Button>
+              </Link>
               <SignedIn>
-                <Button variant="ghost">
-                  <Link href="/profile">Profile</Link>
-                </Button>
+                <Link href="/profile">
+                  <Button variant="ghost">Profile</Button>
+                </Link>
               </SignedIn>
             </div>
           </div>
@@ -111,8 +111,8 @@ export function TopNav() {
         </div>
 
         {isMenuOpen && (
-          <div className="absolute left-0 right-0 top-full mt-2 md:hidden">
-            <div className="rounded-md border bg-background/95 p-2 shadow-md backdrop-blur-sm">
+          <div className="absolute left-[-1px] right-[-1px] top-full pt-2 md:hidden">
+            <div className="rounded-md border bg-background/95 p-2 backdrop-blur-sm">
               <MobileNavItems />
             </div>
           </div>

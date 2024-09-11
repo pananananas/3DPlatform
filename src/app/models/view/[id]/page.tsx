@@ -25,15 +25,28 @@ export default async function ModelPage({
         <p className="pt-4">This is the right floating panel content.</p>
       </div>
 
-      <Button
-        variant="outline"
-        size={"icon"}
-        className="fixed left-2 top-[72px] z-50 hidden transform rounded-lg bg-background/85 md:block"
+      <Link
+        href="/models"
+        className=" items-center justify-center md:block"
       >
-        <Link href="/models" className="">
+        <Button
+          variant="outline"
+          size={"icon"}
+          className="fixed left-2 top-[72px] z-10 transform rounded-lg bg-background/85"
+        >
           <ChevronLeft />
-        </Link>
-      </Button>
+        </Button>
+      </Link>
+
+      <div className="fixed bottom-2 left-2 right-2 z-50 block transform rounded-lg border bg-background/85 p-6 md:hidden">
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="text-xl font-semibold">
+            {removeFileExtension(model3d.name)}
+          </h2>
+          <Badge>{extractExtension(model3d.name)}</Badge>
+        </div>
+        <p className="pb-2 pt-4">This is the bottom floating panel content.</p>
+      </div>
 
       <ViewModel model={model3d} />
     </div>

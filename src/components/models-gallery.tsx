@@ -20,9 +20,9 @@ export function ModelsGallery({ models3d }: Models) {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {models3d.map((model) => (
-          <Card className="rounded-md" key={model.id}>
+          <Card className="min-w-60 rounded-md" key={model.id}>
             <Link href={`/models/view/${model.id}`}>
               <CardHeader>
                 <CardTitle className="flex items-center justify-between gap-2">
