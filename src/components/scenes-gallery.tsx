@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+// import Link from "next/link";
 import { SignedIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { type Models } from "~/types/models";
@@ -13,17 +13,28 @@ import {
 } from "~/components/ui/card";
 import { toast } from "sonner";
 
+// const removeFileExtension = (filename: string) => {
+//   return filename.replace(/\.[^/.]+$/, "");
+// };
+
+// const extractExtension = (filename: string) => {
+//   return filename.split(".").pop()?.toLowerCase();
+// };
+
 export function ScenesGallery({ models3d }: Models) {
   const router = useRouter();
 
   return (
     <>
-      {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         {models3d.map((model) => (
-          <Link href={`/models/views/${model.id}`} key={model.id}>
+          <Link href={`/models/view/${model.id}`} key={model.id}>
             <Card className="rounded-md">
               <CardHeader>
-                <CardTitle>{model.name}</CardTitle>
+                <CardTitle className="flex items-center justify-between gap-2">
+                  {removeFileExtension(model.name)}{" "}
+                  <Badge>{extractExtension(model.name)}</Badge>
+                </CardTitle>
                 <CardDescription>
                   Created at:{" "}
                   {new Date(model.createdAt).toLocaleDateString("en-GB")}

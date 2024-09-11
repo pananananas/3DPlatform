@@ -3,14 +3,9 @@ import { toast } from "sonner";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { type Model3D } from "~/types/models";
-import {
-  Splat,
-  OrbitControls,
-  useGLTF,
-  Environment,
-  Lightformer,
-} from "@react-three/drei";
-// import { Splat } from "~/components/3D/splat";
+import { Splat, OrbitControls, useGLTF } from "@react-three/drei";
+import Lights from "./lights";
+
 type ModelProps = {
   url: string;
 };
@@ -34,9 +29,8 @@ function Model({ url }: ModelProps) {
           src={url}
           // rotation={[0.55 * Math.PI, 0.01 * Math.PI, 1.25 * Math.PI]}
           // toneMapped={false}
-          // alphaTest={0.5}
+          // alphaTest={0.1}
           // alphaHash={true}
-          alphaTest={0.1}
         />
       );
     default:
@@ -58,37 +52,7 @@ export default async function ViewModel({ model }: { model: Model3D }) {
         <Model url={model.url} />
       </Suspense>
       <OrbitControls />
-      <Environment background blur={0.75}>
-        <color attach="background" args={["#121212"]} />
-        <Lightformer
-          intensity={2}
-          color="white"
-          position={[0, -1, 5]}
-          rotation={[0, 0, Math.PI / 3]}
-          scale={[100, 0.1, 1]}
-        />
-        <Lightformer
-          intensity={3}
-          color="white"
-          position={[-1, -1, 1]}
-          rotation={[0, 0, Math.PI / 3]}
-          scale={[100, 0.1, 1]}
-        />
-        <Lightformer
-          intensity={3}
-          color="white"
-          position={[1, 1, 1]}
-          rotation={[0, 0, Math.PI / 3]}
-          scale={[100, 0.1, 1]}
-        />
-        <Lightformer
-          intensity={10}
-          color="white"
-          position={[-10, 0, 14]}
-          rotation={[0, Math.PI / 2, Math.PI / 3]}
-          scale={[100, 10, 1]}
-        />
-      </Environment>
+      <Lights />
     </Canvas>
   );
 }
