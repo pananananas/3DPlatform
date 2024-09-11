@@ -5,10 +5,9 @@ export default async function HomePage() {
   const models3d = await getModels3d();
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-32">
       <h1 className="mb-6 text-3xl font-bold">3D Scenes</h1>
       <ScenesGallery models3d={models3d} />
-
     </div>
   );
 }

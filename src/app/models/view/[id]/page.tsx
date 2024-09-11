@@ -29,7 +29,7 @@ export default async function ModelPage({
         <Button
           variant="outline"
           size={"icon"}
-          className="fixed left-2 top-[72px] z-50 transform rounded-lg"
+          className="fixed left-2 top-[72px] z-50 transform rounded-lg bg-background/85"
         >
           <ChevronLeft />
         </Button>
