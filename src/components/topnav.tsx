@@ -15,17 +15,23 @@ export function TopNav() {
 
   const MobileNavItems = () => (
     <div className="flex flex-col space-y-2">
-      <Button variant="ghost" className="w-full justify-start">
-        <Link href="/models">Models</Link>
-      </Button>
-      <Button variant="ghost" className="w-full justify-start">
-        <Link href="/scenes">Scenes</Link>
-      </Button>
+      <Link href="/models" className="w-full justify-start">
+        <Button variant="ghost" className="w-full justify-start">
+          Models
+        </Button>
+      </Link>
+      <Link href="/scenes" className="w-full justify-start">
+        <Button variant="ghost" className="w-full justify-start">
+          Scenes
+        </Button>
+      </Link>
 
       <SignedIn>
-        <Button variant="ghost" className="w-full justify-start">
-          <Link href="/profile">Profile</Link>
-        </Button>
+        <Link href="/profile" className="w-full justify-start">
+          <Button variant="ghost" className="w-full justify-start">
+            Profile
+          </Button>
+        </Link>
 
         <AddModelDialog />
       </SignedIn>

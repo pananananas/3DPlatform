@@ -28,9 +28,9 @@ export default async function ModelPage({
       <Button
         variant="outline"
         size={"icon"}
-        className="fixed left-2 top-[72px] z-50 transform rounded-lg bg-background/85"
+        className="fixed left-2 top-[72px] z-50 hidden transform rounded-lg bg-background/85 md:block"
       >
-        <Link href="/models" className="hidden md:block">
+        <Link href="/models" className="">
           <ChevronLeft />
         </Link>
       </Button>
