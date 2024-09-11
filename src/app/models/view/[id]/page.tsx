@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
 import { ChevronLeft } from "lucide-react";
 import { getModel3d } from "~/server/queries";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 
 export default async function ModelPage({
   params,

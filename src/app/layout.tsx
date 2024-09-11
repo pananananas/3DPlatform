@@ -5,6 +5,7 @@ import { TopNav } from "~/components/topnav";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "3D Platform",
@@ -17,15 +18,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistMono.variable}`}>
-        <body className="flex flex-col h-screen">
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <TopNav />
-            {children}
-          </ThemeProvider>
-          <Toaster />
-        </body>
-      </html>
+      <ViewTransitions>
+        <html lang="en" className={`${GeistMono.variable}`}>
+          <body className="flex h-screen flex-col">
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <TopNav />
+              {children}
+            </ThemeProvider>
+            <Toaster />
+          </body>
+        </html>
+      </ViewTransitions>
     </ClerkProvider>
   );
 }

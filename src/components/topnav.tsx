@@ -1,14 +1,14 @@
 "use client";
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
+import { AddModelDialog } from "./add-model-dialog";
 import { ThemeToggle } from "./theme-toggle";
+import { Link } from "next-view-transitions";
+import { IconBox } from "./icons/icon-box";
+import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { dark } from "@clerk/themes";
-import { IconBox } from "./icons/icon-box";
-import { AddModelDialog } from "./add-model-dialog";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
 
 export function TopNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,9 +66,11 @@ export function TopNav() {
               <Link href="/scenes">
                 <Button variant="ghost">Scenes</Button>
               </Link>
-              <Link href="/profile">
-                <Button variant="ghost">Profile</Button>
-              </Link>
+              <SignedIn>
+                <Link href="/profile">
+                  <Button variant="ghost">Profile</Button>
+                </Link>
+              </SignedIn>
             </div>
           </div>
 

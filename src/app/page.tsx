@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "~/components/ui/button";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import { toast } from "sonner";
 import { SignedIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
