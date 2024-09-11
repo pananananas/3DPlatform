@@ -19,9 +19,9 @@
 - [x] add placeholder landing page
 - [ ] display model previews in model list
 
-- [ ] add support for multiple model types
-- [ ] add sidebars to model display
-  - [ ] model info
+- [x] add support for multiple model types
+- [x] add sidebars to model display
+  - [x] model info
   - [ ] edit model info
   - [ ] edit colors (color picker)
 

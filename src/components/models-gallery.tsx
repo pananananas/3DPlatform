@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { type Models } from "~/types/models";
 import { Badge } from "~/components/ui/badge";
 import { UploadDropzone } from "~/utils/uploadthing";
+import { extractExtension, removeFileExtension } from "~/utils/filenames";
 import {
   Card,
   CardContent,
@@ -14,13 +15,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 
-const removeFileExtension = (filename: string) => {
-  return filename.replace(/\.[^/.]+$/, "");
-};
 
-const extractExtension = (filename: string) => {
-  return filename.split(".").pop()?.toLowerCase();
-};
 
 export function ModelsGallery({ models3d }: Models) {
   const router = useRouter();

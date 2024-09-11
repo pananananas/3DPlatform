@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistMono.variable}`}>
-        <body>
+        <body className="flex flex-col h-screen">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <TopNav />
             {children}

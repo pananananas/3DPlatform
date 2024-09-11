@@ -27,6 +27,9 @@ export function TopNav() {
           <Link href="/scenes">
             <Button variant="ghost">Scenes</Button>
           </Link>
+          <Link href="/profile">
+            <Button variant="ghost">Profile</Button>
+          </Link>
         </div>
         <div className="flex flex-row items-center justify-center gap-4">
           <SignedOut>
@@ -43,9 +46,6 @@ export function TopNav() {
               />
             </Button>
             <AddModelDialog />
-            <Link href="/profile">
-              <Button variant="outline">Profile</Button>
-            </Link>
           </SignedIn>
           <ThemeToggle />
         </div>

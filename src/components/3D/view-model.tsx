@@ -53,7 +53,7 @@ export default async function ViewModel({ model }: { model: Model3D }) {
       <Suspense fallback={null}>
         <Model url={model.url} />
       </Suspense>
-      <OrbitControls />
+      <OrbitControls maxDistance={100} minDistance={1} />
       <Lights />
     </Canvas>
   );
