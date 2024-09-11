@@ -24,9 +24,15 @@
   - [x] model info
   - [ ] edit model info
   - [ ] edit colors (color picker)
+  - [ ] camera animations 
+
+- mobile support
+  - [ ] navbar for mobile
+  - [ ] drawer instead of sidebar
 
 
 - [ ] add scenes support to display multiple models
+  - [ ] add model to scene
 
 
 AI Model generation:
