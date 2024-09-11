@@ -18,9 +18,6 @@ const getMimeTypeFromExtension = (filename: string): string => {
   return mimeTypes[extension ?? ""] ?? "unsupported";
 };
 
-const removeFileExtension = (filename: string) => {
-  return filename.replace(/\.[^/.]+$/, "");
-};
 
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
@@ -41,15 +38,14 @@ export const ourFileRouter = {
       // This code RUNS ON YOUR SERVER after upload
 
       const mimeType = getMimeTypeFromExtension(file.name);
+      const filename = file.name;
 
       if (mimeType === "unsupported")
-        throw new Error(
-          `Unsupported file extension for file: ${file.name}`
-        );
-      const filename = removeFileExtension(file.name);
+        throw new Error(`Unsupported file extension for file: ${filename}`);
 
       await db.insert(models3d).values({
         name: filename,
+        fileType: mimeType,
         url: file.url,
         fileKey: file.key,
         userId: metadata.userId,

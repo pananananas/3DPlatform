@@ -19,3 +19,17 @@ export async function getMyModels3d() {
   });
   return models3d;
 }
+
+export async function getModel3d(id: number) {
+  // const user = auth();
+  // if (!user.userId) throw new Error("Unauthorized");
+
+  const model3d = await db.query.models3d.findFirst({
+    where: (model, { eq }) => eq(model.id, id),
+  });
+  if (!model3d) throw new Error("Model not found");
+
+  // if (image.userId !== user.userId) throw new Error("Unauthorized");
+
+  return model3d;
+}

@@ -23,6 +23,7 @@ export const models3d = createTable(
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }).notNull(),
+    fileType: varchar("file_type", { length: 256 }).notNull(),
     url: varchar("url", { length: 1024 }).notNull(),
     fileKey: varchar("file_key", { length: 1024 }).notNull(),
     userId: varchar("user_id", { length: 256 }).notNull(),

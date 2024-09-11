@@ -2,6 +2,7 @@ export interface Model3D {
   id: number;
   userId: string;
   name: string;
+  fileType: string;
   url: string;
   fileKey: string;
   createdAt: Date;
