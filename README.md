@@ -27,7 +27,7 @@
   - [ ] camera animations 
 
 - mobile support
-  - [ ] navbar for mobile
+  - [x] navbar for mobile
   - [ ] drawer instead of sidebar
 
 
