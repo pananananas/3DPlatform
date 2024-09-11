@@ -15,8 +15,6 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 
-
-
 export function ModelsGallery({ models3d }: Models) {
   const router = useRouter();
 
@@ -29,7 +27,7 @@ export function ModelsGallery({ models3d }: Models) {
               <CardHeader>
                 <CardTitle className="flex items-center justify-between gap-2">
                   {removeFileExtension(model.name)}{" "}
-                  <Badge>{extractExtension(model.name)}</Badge>
+                  <Badge>.{extractExtension(model.name)}</Badge>
                 </CardTitle>
                 <CardDescription>
                   Created at:{" "}

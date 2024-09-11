@@ -15,7 +15,7 @@ export default async function ModelPage({
 
   return (
     <div className="h-full w-full">
-      <div className="fixed bottom-4 right-4 top-20 z-50 hidden w-72 transform rounded-lg border bg-neutral-100 p-6 dark:bg-[rgba(0,0,0,0.8)] md:block">
+      <div className="fixed bottom-2 right-2 top-[72px] z-50 hidden w-72 transform rounded-lg border bg-background/85 p-6 md:block">
         <div className="flex items-center justify-between gap-2">
           <h2 className="text-xl font-semibold">
             {removeFileExtension(model3d.name)}
@@ -25,11 +25,11 @@ export default async function ModelPage({
         <p className="pt-4">This is the right floating panel content.</p>
       </div>
 
-      <Link href="/models">
+      <Link href="/models" className="hidden md:block">
         <Button
           variant="outline"
           size={"icon"}
-          className="fixed left-4 top-20 z-50 transform rounded-lg"
+          className="fixed left-2 top-[72px] z-50 transform rounded-lg"
         >
           <ChevronLeft />
         </Button>

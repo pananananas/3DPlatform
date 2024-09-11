@@ -46,8 +46,8 @@ export function TopNav() {
   );
 
   return (
-    <div className="w-full p-2">
-      <nav className="flex flex-col rounded-md border p-2 text-xl font-semibold">
+    <div className="fixed left-0 right-0 top-0 z-50 w-full p-2">
+      <nav className="flex flex-col rounded-md border bg-background/85 p-2 text-xl font-semibold shadow-md backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href={"/"}>
@@ -110,8 +110,10 @@ export function TopNav() {
         </div>
 
         {isMenuOpen && (
-          <div className="mt-4 md:hidden">
-            <MobileNavItems />
+          <div className="absolute left-0 right-0 top-full mt-2 md:hidden">
+            <div className="rounded-md border bg-background/95 p-2 shadow-md backdrop-blur-sm">
+              <MobileNavItems />
+            </div>
           </div>
         )}
       </nav>
