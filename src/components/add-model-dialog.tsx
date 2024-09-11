@@ -1,7 +1,7 @@
 "use client";
+import { useTransitionRouter } from "next-view-transitions";
 import { UploadDropzone } from "~/utils/uploadthing";
 import { Button } from "~/components/ui/button";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import {
   Dialog,
@@ -13,7 +13,7 @@ import {
 } from "~/components/ui/dialog";
 
 export function AddModelDialog() {
-  const router = useRouter();
+  const router = useTransitionRouter();
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -27,7 +27,7 @@ export function AddModelDialog() {
           </DialogDescription>
         </DialogHeader>
         <UploadDropzone
-          className="ut-label:text-m ut-button:bg-neutral-800 ut-button:text-neutral-200 dark:ut-button:bg-neutral-200 dark:ut-button:text-neutral-900 ut-label:text-neutral-900 dark:ut-label:text-neutral-100 ut-button:ut-uploading:after:bg-neutral-900 p-3 dark:border-neutral-700"
+          className="ut-label:text-m p-3 ut-button:bg-neutral-800 ut-button:text-neutral-200 ut-label:text-neutral-900 ut-button:ut-uploading:after:bg-neutral-900 dark:border-neutral-700 dark:ut-button:bg-neutral-200 dark:ut-button:text-neutral-900 dark:ut-label:text-neutral-100"
           endpoint="model3dUploader"
           onClientUploadComplete={() => {
             toast("Model uploaded successfully");

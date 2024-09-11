@@ -50,7 +50,7 @@ export function TopNav() {
       <nav className="flex flex-col rounded-md border bg-background/85 p-2 text-xl font-semibold shadow-md backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Link href={"/"}>
+            <Link href={"/models"}>
               <Button
                 variant="ghost"
                 className="flex flex-row items-center justify-center gap-3 p-2"

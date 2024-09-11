@@ -1,7 +1,8 @@
 "use client";
 // import { Link } from 'next-view-transitions'
 import { SignedIn } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import { useTransitionRouter } from "next-view-transitions";
+
 import { type Models } from "~/types/models";
 import { UploadDropzone } from "~/utils/uploadthing";
 import {
@@ -22,7 +23,7 @@ import { toast } from "sonner";
 // };
 
 export function ScenesGallery({ models3d }: Models) {
-  const router = useRouter();
+  const router = useTransitionRouter();
 
   return (
     <>

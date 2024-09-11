@@ -1,11 +1,11 @@
 "use client";
 import { Button } from "~/components/ui/button";
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useTransitionRouter } from "next-view-transitions";
 
 export default function HomePage() {
-  const router = useRouter();
+  const router = useTransitionRouter();
 
   useEffect(() => {
     router.push("/models");

@@ -42,4 +42,4 @@ Maybe later:
 - [ ] error management - Sentry
 - [ ] analytics - PostHog
 - [ ] rate limiting - Upstash
-- [ ] transition api
+- [x] transition api

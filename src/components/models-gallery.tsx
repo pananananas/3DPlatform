@@ -1,12 +1,12 @@
 "use client";
-import { Link } from 'next-view-transitions'
-import { toast } from "sonner";
-import { SignedIn } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { type Models } from "~/types/models";
-import { Badge } from "~/components/ui/badge";
-import { UploadDropzone } from "~/utils/uploadthing";
 import { extractExtension, removeFileExtension } from "~/utils/filenames";
+import { useTransitionRouter } from "next-view-transitions";
+import { UploadDropzone } from "~/utils/uploadthing";
+import { Badge } from "~/components/ui/badge";
+import { Link } from "next-view-transitions";
+import { type Models } from "~/types/models";
+import { SignedIn } from "@clerk/nextjs";
+import { toast } from "sonner";
 import {
   Card,
   CardContent,
@@ -16,7 +16,7 @@ import {
 } from "~/components/ui/card";
 
 export function ModelsGallery({ models3d }: Models) {
-  const router = useRouter();
+  const router = useTransitionRouter();
 
   return (
     <>
