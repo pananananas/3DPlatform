@@ -20,7 +20,7 @@ export function ModelsGallery({ models3d }: Models) {
     <>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {models3d.map((model) => (
-          <Link href={`/models/views/${model.id}`} key={model.id}>
+          <Link href={`/models/view/${model.id}`} key={model.id}>
             <Card className="rounded-md">
               <CardHeader>
                 <CardTitle>{model.name}</CardTitle>
