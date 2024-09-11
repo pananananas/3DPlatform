@@ -1,4 +1,4 @@
-# 3D Platform
++# 3D Platform
 
 ## TODO
 
@@ -9,21 +9,31 @@
 
 - [x] page with list of models 3d models
 - [x] rendering 3d using react three fiber
-- [ ] page with 3d model viewer
+- [x] page with 3d model viewer
 
 - [x] add auth
-- [x] add uploadthing 
-- [ ] "add model" form, with option to change default name
+- [x] add uploadthing
 
-- [ ] reroute "models" to models/view or something
-- [ ] add side menus to model display
-- [ ] move model list to "/models" route
-- [ ] add placeholder landing page
-- [ ] display model previews
-- [ ] add sidebars to model display 
+- [x] reroute "models" to models/view
+- [x] move model list to "/models" route
+- [x] add placeholder landing page
+- [ ] display model previews in model list
+
+- [ ] add support for multiple model types
+- [ ] add sidebars to model display
+  - [ ] model info
+  - [ ] edit model info
+  - [ ] edit colors (color picker)
+
 
 - [ ] add scenes support to display multiple models
 
 
 AI Model generation:
 - [ ] connect to replicated
+
+Maybe later:
+- [ ] error management - Sentry
+- [ ] analytics - PostHog
+- [ ] rate limiting - Upstash
+- [ ] transition api
