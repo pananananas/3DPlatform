@@ -23,6 +23,8 @@ function Model({ url }: ModelProps) {
       toast("USDZ models are not supported yet");
       return null;
     case "ply":
+      toast("PLY models are not supported yet, convert to SPLAT");
+      return null;
     case "splat":
       return (
         <Splat
