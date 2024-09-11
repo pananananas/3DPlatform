@@ -4,12 +4,13 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { type Model3D } from "~/types/models";
 import {
+  Splat,
   OrbitControls,
   useGLTF,
   Environment,
   Lightformer,
 } from "@react-three/drei";
-
+// import { Splat } from "~/components/3D/splat";
 type ModelProps = {
   url: string;
 };
@@ -26,12 +27,23 @@ function Model({ url }: ModelProps) {
     case "usd":
       toast("USDZ models are not supported yet");
       return null;
+    case "ply":
+    case "splat":
+      return (
+        <Splat
+          src={url}
+          // rotation={[0.55 * Math.PI, 0.01 * Math.PI, 1.25 * Math.PI]}
+          // toneMapped={false}
+          // alphaTest={0.5}
+          // alphaHash={true}
+          alphaTest={0.1}
+        />
+      );
     default:
       toast("Unsupported model format: " + fileExtension);
       return null;
   }
 }
-
 function GLTFModel({ url }: ModelProps) {
   const { scene } = useGLTF(url);
   return <primitive object={scene} />;
