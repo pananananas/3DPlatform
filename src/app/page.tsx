@@ -2,10 +2,11 @@
 // import { Button } from "~/components/ui/button";
 // import { Link } from "next-view-transitions";
 import { useEffect } from "react";
-import { useTransitionRouter } from "next-view-transitions";
+
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
-  const router = useTransitionRouter();
+  const router = useRouter();
 
   useEffect(() => {
     router.push("/models");

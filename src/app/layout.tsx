@@ -10,7 +10,7 @@ import { ViewTransitions } from "next-view-transitions";
 export const metadata: Metadata = {
   title: "3D Platform",
   description: "A platform for 3D models",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/cube.png" }],
 };
 
 export default function RootLayout({
