@@ -1,5 +1,4 @@
 "use client";
-
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { AddModelDialog } from "./add-model-dialog";
 import { ThemeToggle } from "./theme-toggle";
@@ -16,23 +15,17 @@ export function TopNav() {
 
   const MobileNavItems = () => (
     <div className="flex flex-col space-y-2">
-      <Link href="/models">
-        <Button variant="ghost" className="w-full justify-start">
-          Models
-        </Button>
-      </Link>
-      <Link href="/scenes">
-        <Button variant="ghost" className="w-full justify-start">
-          Scenes
-        </Button>
-      </Link>
+      <Button variant="ghost" className="w-full justify-start">
+        <Link href="/models">Models</Link>
+      </Button>
+      <Button variant="ghost" className="w-full justify-start">
+        <Link href="/scenes">Scenes</Link>
+      </Button>
 
       <SignedIn>
-        <Link href="/profile">
-          <Button variant="ghost" className="w-full justify-start">
-            Profile
-          </Button>
-        </Link>
+        <Button variant="ghost" className="w-full justify-start">
+          <Link href="/profile">Profile</Link>
+        </Button>
 
         <AddModelDialog />
       </SignedIn>
@@ -50,26 +43,26 @@ export function TopNav() {
       <nav className="flex flex-col rounded-md border bg-background/85 p-2 text-xl font-semibold shadow-md backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Link href={"/models"}>
-              <Button
-                variant="ghost"
+            <Button variant="ghost" className="p-0">
+              <Link
+                href={"/models"}
                 className="flex flex-row items-center justify-center gap-3 p-2"
               >
                 <IconBox />
                 <h1 className="text-lg font-bold md:text-xl">3D Platform</h1>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <div className="hidden md:flex md:flex-row md:items-center md:gap-2">
-              <Link href="/models">
-                <Button variant="ghost">Models</Button>
-              </Link>
-              <Link href="/scenes">
-                <Button variant="ghost">Scenes</Button>
-              </Link>
+              <Button variant="ghost">
+                <Link href="/models">Models</Link>
+              </Button>
+              <Button variant="ghost">
+                <Link href="/scenes">Scenes</Link>
+              </Button>
               <SignedIn>
-                <Link href="/profile">
-                  <Button variant="ghost">Profile</Button>
-                </Link>
+                <Button variant="ghost">
+                  <Link href="/profile">Profile</Link>
+                </Button>
               </SignedIn>
             </div>
           </div>

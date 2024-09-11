@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
 import { ChevronLeft } from "lucide-react";
 import { getModel3d } from "~/server/queries";
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 
 export default async function ModelPage({
   params,
@@ -25,15 +25,15 @@ export default async function ModelPage({
         <p className="pt-4">This is the right floating panel content.</p>
       </div>
 
-      <Link href="/models" className="hidden md:block">
-        <Button
-          variant="outline"
-          size={"icon"}
-          className="fixed left-2 top-[72px] z-50 transform rounded-lg bg-background/85"
-        >
+      <Button
+        variant="outline"
+        size={"icon"}
+        className="fixed left-2 top-[72px] z-50 transform rounded-lg bg-background/85"
+      >
+        <Link href="/models" className="hidden md:block">
           <ChevronLeft />
-        </Button>
-      </Link>
+        </Link>
+      </Button>
 
       <ViewModel model={model3d} />
     </div>

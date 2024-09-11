@@ -22,8 +22,8 @@ export function ModelsGallery({ models3d }: Models) {
     <>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         {models3d.map((model) => (
-          <Link href={`/models/view/${model.id}`} key={model.id}>
-            <Card className="rounded-md">
+          <Card className="rounded-md" key={model.id}>
+            <Link href={`/models/view/${model.id}`}>
               <CardHeader>
                 <CardTitle className="flex items-center justify-between gap-2">
                   {removeFileExtension(model.name)}{" "}
@@ -34,8 +34,8 @@ export function ModelsGallery({ models3d }: Models) {
                   {new Date(model.createdAt).toLocaleDateString("en-GB")}
                 </CardDescription>
               </CardHeader>
-            </Card>
-          </Link>
+            </Link>
+          </Card>
         ))}
       </div>
       <div className="py-6">

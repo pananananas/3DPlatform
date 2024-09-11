@@ -1,4 +1,4 @@
-+# 3D Platform
+# 3D Platform
 
 ## TODO
 
