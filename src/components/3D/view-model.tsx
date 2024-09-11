@@ -45,7 +45,7 @@ function GLTFModel({ url }: ModelProps) {
   return <primitive object={scene} />;
 }
 
-export default async function ViewModel({ model }: { model: Model3D }) {
+export default function ViewModel({ model }: { model: Model3D }) {
   return (
     <Canvas camera={{ position: [10, 5, 13], fov: 25 }}>
       <ambientLight intensity={0.5} />

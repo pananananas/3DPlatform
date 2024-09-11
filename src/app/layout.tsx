@@ -20,10 +20,12 @@ export default function RootLayout({
     <ClerkProvider>
       <ViewTransitions>
         <html lang="en" className={`${GeistMono.variable}`}>
-          <body className="flex h-screen flex-col">
+          <body>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <TopNav />
-              {children}
+              <div className="flex h-screen flex-col">
+                <TopNav />
+                {children}
+              </div>
             </ThemeProvider>
             <Toaster />
           </body>
