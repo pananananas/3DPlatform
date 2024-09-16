@@ -7,7 +7,7 @@
 - [ ] add sidebars to model display
 
   - [x] model info
-  - [ ] edit model info
+  - [ ] edit model (rotation etc)
   - [ ] edit colors (color picker) (https://uiwjs.github.io/react-color/)
   - [ ] camera animations (https://drei.docs.pmnd.rs)
 

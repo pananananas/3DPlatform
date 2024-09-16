@@ -8,6 +8,7 @@ import {
   serial,
   timestamp,
   varchar,
+  doublePrecision
 } from "drizzle-orm/pg-core";
 
 /**
@@ -33,8 +34,25 @@ export const models3d = createTable(
     updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
       () => new Date(),
     ),
+    translateX: doublePrecision("translate_x").default(0).notNull(),
+    translateY: doublePrecision("translate_y").default(0).notNull(),
+    translateZ: doublePrecision("translate_z").default(0).notNull(),
+    rotateX:    doublePrecision("rotate_x").default(0).notNull(),
+    rotateY:    doublePrecision("rotate_y").default(0).notNull(),
+    rotateZ:    doublePrecision("rotate_z").default(0).notNull(),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
+  (table) => ({
+    nameIndex: index("name_idx").on(table.name),
+    translateIndex: index("translate_idx").on(
+      table.translateX,
+      table.translateY,
+      table.translateZ,
+    ),
+    rotateIndex: index("rotate_idx").on(
+      table.rotateX,
+      table.rotateY,
+      table.rotateZ,
+    ),
   }),
 );
+

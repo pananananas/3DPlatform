@@ -1,3 +1,9 @@
+export type Vector3 = {
+  x: number;
+  y: number;
+  z: number;
+};
+
 export interface Model3D {
   id: number;
   userId: string;
@@ -7,6 +13,12 @@ export interface Model3D {
   fileKey: string;
   createdAt: Date;
   updatedAt: Date | null;
+  translateX: number;
+  translateY: number;
+  translateZ: number;
+  rotateX:    number;
+  rotateY:    number;
+  rotateZ:    number;
 }
 
 export interface Models {
