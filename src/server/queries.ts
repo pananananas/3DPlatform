@@ -3,6 +3,9 @@ import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { models3d as models3dTable } from "./db/schema";
 import { eq } from "drizzle-orm";
+import { UTApi } from "uploadthing/server";
+
+export const utapi = new UTApi();
 
 export async function getModels3d() {
   const models3d = await db.query.models3d.findMany({

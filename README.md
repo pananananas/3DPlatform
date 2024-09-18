@@ -2,6 +2,8 @@
 
 ## TODOS:
 
+- [x] update uploadthing
+
 - [ ] display model previews in model list
 
 - [ ] add sidebars to model display
