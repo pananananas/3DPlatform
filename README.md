@@ -2,30 +2,32 @@
 
 ## TODOS:
 
-- [x] update uploadthing
 
-- [ ] display model previews in model list
+## Essential:
 
-- [ ] add sidebars to model display
+- [ ] download 3d model button
+- [ ] edit model (rotation etc)
 
-  - [x] model info
-  - [ ] edit model (rotation etc)
-  - [ ] edit colors (color picker) (https://uiwjs.github.io/react-color/)
-  - [ ] camera animations (https://drei.docs.pmnd.rs)
+- [ ] use replicate to convert ply to splat on upload
+
+
+- [ ] camera animations (https://drei.docs.pmnd.rs)
+
+- [ ] edit colors (color picker) (https://uiwjs.github.io/react-color/)
 
 - [ ] add scenes support to display multiple models
   - [ ] create new scene with models
   - [ ] add model to scene
   - [ ] create scene by uploading images (gaussian splatting on replicate)
 
-AI Model generation:
+- [ ] display model previews in model list
 
-- [ ] connect to replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
+AI Model generation:
+- [ ] generate models using replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
 
 Maybe later:
-
-- [ ] error management - Sentry
 - [ ] analytics - PostHog
+- [ ] error management - Sentry
 - [ ] rate limiting - Upstash
 - [x] transition api
 
