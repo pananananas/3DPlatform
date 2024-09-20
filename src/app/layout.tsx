@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ViewTransitions } from "next-view-transitions";
+import { CSPostHogProvider } from "./_analytics/provider";
 
 export const metadata: Metadata = {
   title: "3D Platform",
@@ -18,19 +19,25 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <ViewTransitions>
-        <html lang="en" className={`${GeistMono.variable}`}>
-          <body>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <div className="flex h-screen flex-col">
-                <TopNav />
-                {children}
-              </div>
-            </ThemeProvider>
-            <Toaster />
-          </body>
-        </html>
-      </ViewTransitions>
+      <CSPostHogProvider>
+        <ViewTransitions>
+          <html lang="en" className={`${GeistMono.variable}`}>
+            <body>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+              >
+                <div className="flex h-screen flex-col">
+                  <TopNav />
+                  {children}
+                </div>
+              </ThemeProvider>
+              <Toaster />
+            </body>
+          </html>
+        </ViewTransitions>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }

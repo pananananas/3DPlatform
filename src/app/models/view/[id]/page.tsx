@@ -1,12 +1,11 @@
-import { extractExtension, removeFileExtension } from "~/utils/filenames";
 import { changeRotationAction, changeTranslationAction } from "./actions";
+import { extractExtension, removeFileExtension } from "~/utils/filenames";
+import NavigateBackButton from "~/components/navigate-back-button";
 import ViewModel from "~/components/3D/view-model";
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
 import { getModel3d } from "~/server/queries";
 import { type Model3D } from "~/types/models";
-import { Link } from "next-view-transitions";
-import { ChevronLeft } from "lucide-react";
 import { Suspense } from "react";
 
 async function Model3DViewer({ id }: { id: number }) {
@@ -55,15 +54,9 @@ export default async function ModelPage({
         </div>
       </div>
 
-      <Link href="/models" className="items-center justify-center md:block">
-        <Button
-          variant="outline"
-          size="icon"
-          className="fixed left-2 top-[72px] z-10 transform rounded-lg bg-background/85"
-        >
-          <ChevronLeft />
-        </Button>
-      </Link>
+      <div className="items-center justify-center md:block">
+        <NavigateBackButton />
+      </div>
 
       <div className="fixed bottom-2 left-2 right-2 z-50 block transform rounded-lg border bg-background/85 p-6 md:hidden">
         <ModelInfo model={model3d} />
