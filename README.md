@@ -7,6 +7,7 @@
 
 - [ ] download 3d model button
 - [ ] edit model (rotation etc)
+- [ ] delete button
 
 - [ ] use replicate to convert ply to splat on upload
 
@@ -26,7 +27,7 @@ AI Model generation:
 - [ ] generate models using replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
 
 Maybe later:
-- [ ] analytics - PostHog
+- [x] analytics - PostHog
 - [ ] error management - Sentry
 - [ ] rate limiting - Upstash
 - [x] transition api
