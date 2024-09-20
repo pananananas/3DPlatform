@@ -1,12 +1,10 @@
 "use client";
 import { extractExtension, removeFileExtension } from "~/utils/filenames";
-import { useTransitionRouter } from "next-view-transitions";
-import { UploadDropzone } from "~/utils/uploadthing";
+import ModelUploadDropzone from "./3d-model-upload-dropzone";
 import { Badge } from "~/components/ui/badge";
 import { Link } from "next-view-transitions";
 import { type Models } from "~/types/models";
 import { SignedIn } from "@clerk/nextjs";
-import { toast } from "sonner";
 import {
   Card,
   CardContent,
@@ -16,7 +14,6 @@ import {
 } from "~/components/ui/card";
 
 export function ModelsGallery({ models3d }: Models) {
-  const router = useTransitionRouter();
 
   return (
     <>
@@ -46,23 +43,7 @@ export function ModelsGallery({ models3d }: Models) {
               <CardDescription>Add new 3D model</CardDescription>
 
               <CardContent>
-                <UploadDropzone
-                  className="ut-label:text-m p-3 ut-button:bg-neutral-800 ut-button:text-neutral-200 ut-label:text-neutral-900 ut-button:ut-uploading:after:bg-neutral-900 dark:border-neutral-700 dark:ut-button:bg-neutral-200 dark:ut-button:text-neutral-900 dark:ut-label:text-neutral-100"
-                  endpoint="model3dUploader"
-                  onClientUploadComplete={() => {
-                    toast("Model uploaded successfully!", {
-                      description: "Added model to gallery.",
-                      action: {
-                        label: "Close",
-                        onClick: () => console.log("Undo"),
-                      },
-                    });
-                    router.refresh();
-                  }}
-                  onUploadError={(error: Error) => {
-                    alert(`ERROR! ${error.message}`);
-                  }}
-                />
+                <ModelUploadDropzone/>
               </CardContent>
             </CardHeader>
           </Card>

@@ -2,6 +2,7 @@
 import { useTransitionRouter } from "next-view-transitions";
 import { UploadDropzone } from "~/utils/uploadthing";
 import { Button } from "~/components/ui/button";
+import posthog from "posthog-js";
 import { toast } from "sonner";
 import {
   Dialog,
@@ -33,6 +34,12 @@ export function AddModelDialog() {
             toast("Model uploaded successfully");
             router.refresh();
           }}
+          onUploadBegin={
+            () => {
+              toast("Uploading model...")
+              posthog.capture("model_upload_started");
+            }
+          }
         />
       </DialogContent>
     </Dialog>

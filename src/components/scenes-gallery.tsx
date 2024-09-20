@@ -1,10 +1,7 @@
-"use client";
-// import { Link } from 'next-view-transitions'
-import { SignedIn } from "@clerk/nextjs";
-import { useTransitionRouter } from "next-view-transitions";
 
+// import { Link } from 'next-view-transitions'
 import { type Models } from "~/types/models";
-import { UploadDropzone } from "~/utils/uploadthing";
+import { SignedIn } from "@clerk/nextjs";
 import {
   Card,
   CardContent,
@@ -12,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { toast } from "sonner";
+import ModelUploadDropzone from "./3d-model-upload-dropzone";
 
 // const removeFileExtension = (filename: string) => {
 //   return filename.replace(/\.[^/.]+$/, "");
@@ -23,7 +20,7 @@ import { toast } from "sonner";
 // };
 
 export function ScenesGallery({ models3d }: Models) {
-  const router = useTransitionRouter();
+
 
   return (
     <>
@@ -53,23 +50,7 @@ export function ScenesGallery({ models3d }: Models) {
               <CardDescription>Add new 3D scene</CardDescription>
 
               <CardContent>
-                <UploadDropzone
-                  className="ut-label:text-m p-3 ut-button:bg-neutral-800 ut-button:text-neutral-200 ut-label:text-neutral-900 ut-button:ut-uploading:after:bg-neutral-900 dark:border-neutral-700 dark:ut-button:bg-neutral-200 dark:ut-button:text-neutral-900 dark:ut-label:text-neutral-100"
-                  endpoint="model3dUploader"
-                  onClientUploadComplete={() => {
-                    toast("Scene uploaded successfully!", {
-                      description: "Added scene to gallery.",
-                      action: {
-                        label: "Close",
-                        onClick: () => console.log("Undo"),
-                      },
-                    });
-                    router.refresh();
-                  }}
-                  onUploadError={(error: Error) => {
-                    alert(`ERROR! ${error.message}`);
-                  }}
-                />
+                <ModelUploadDropzone />
               </CardContent>
             </CardHeader>
           </Card>
