@@ -1,12 +1,20 @@
-import { changeRotationAction, changeTranslationAction } from "./actions";
 import { extractExtension, removeFileExtension } from "~/utils/filenames";
 import NavigateBackButton from "~/components/navigate-back-button";
 import ViewModel from "~/components/3D/view-model";
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
-import { getModel3d } from "~/server/queries";
+import {
+  changeRotation,
+  changeTranslation,
+  deleteModel,
+  getModel3d,
+} from "~/server/queries";
 import { type Model3D } from "~/types/models";
 import { Suspense } from "react";
+import { IconTrash } from "~/components/icons/icon-trash";
+import { IconAdjustments } from "~/components/icons/icon-adjustments";
+import { IconRotate } from "~/components/icons/icon-rotate";
+import { DeleteModelDialog } from "~/components/delete-model-dialog";
 
 async function Model3DViewer({ id }: { id: number }) {
   const model3d = await getModel3d(id);
@@ -22,7 +30,18 @@ function ModelInfo({ model }: { model: Model3D }) {
         </h2>
         <Badge>{extractExtension(model.name)}</Badge>
       </div>
-      <p className="pt-4">This is the right floating panel content.</p>
+      <div className="flex flex-col gap-4 py-4">
+        <div>
+          <IconAdjustments />
+        </div>
+        <span className="ml-2">
+          Translation: {model.translateX}, {model.translateY}, {model.translateZ}
+        </span>
+        <span className="ml-2">
+          Rotation: {model.rotateX}, {model.rotateY}, {model.rotateZ}
+        </span>
+        <IconRotate />
+      </div>
     </>
   );
 }
@@ -39,15 +58,20 @@ export default async function ModelPage({
       <div className="fixed bottom-2 right-2 top-[72px] z-50 hidden w-72 transform rounded-lg border bg-background/85 p-6 md:block">
         <ModelInfo model={model3d} />
         <div className="flex flex-col gap-4 py-4">
+          <DeleteModelDialog params={params} />
           <form
-            action={changeRotationAction.bind(null, params.id, 0, 3.14, 3.14)}
-            method="post"
+            action={async () => {
+              "use server";
+              await changeRotation(params.id, 0, 3.14, 3.14);
+            }}
           >
             <Button type="submit">Change Rotation</Button>
           </form>
           <form
-            action={changeTranslationAction.bind(null, params.id, 0, 0, 0)}
-            method="post"
+            action={async () => {
+              "use server";
+              await changeTranslation(params.id, 0, 0, 0);
+            }}
           >
             <Button type="submit">Reset Translation</Button>
           </form>

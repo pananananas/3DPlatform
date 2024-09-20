@@ -2,8 +2,11 @@ import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { models3d as models3dTable } from "./db/schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { UTApi } from "uploadthing/server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import analyticsServerClient from "./analytics";
 
 export const utapi = new UTApi();
 
@@ -26,15 +29,10 @@ export async function getMyModels3d() {
 }
 
 export async function getModel3d(id: number) {
-  // const user = auth();
-  // if (!user.userId) throw new Error("Unauthorized");
-
   const model3d = await db.query.models3d.findFirst({
     where: (model, { eq }) => eq(model.id, id),
   });
   if (!model3d) throw new Error("Model not found");
-
-  // if (image.userId !== user.userId) throw new Error("Unauthorized");
 
   return model3d;
 }
@@ -45,6 +43,9 @@ export async function changeRotation(
   rotY: number,
   rotZ: number,
 ) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
   const updatedModel = await db
     .update(models3dTable)
     .set({
@@ -52,13 +53,23 @@ export async function changeRotation(
       rotateY: rotY,
       rotateZ: rotZ,
     })
-    .where(eq(models3dTable.id, id))
+    .where(and(eq(models3dTable.id, id), eq(models3dTable.userId, user.userId)))
     .returning();
 
   if (!updatedModel || updatedModel.length === 0) {
     throw new Error("Model not found or update failed");
   }
 
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "Edited Rotation",
+    properties: {
+      modelId: id,
+    },
+  });
+
+  revalidatePath(`/models/view/${id}`);
+  redirect(`/models/view/${id}`);
   return updatedModel[0];
 }
 
@@ -68,6 +79,9 @@ export async function changeTranslation(
   transY: number,
   transZ: number,
 ) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
   const updatedModel = await db
     .update(models3dTable)
     .set({
@@ -75,12 +89,43 @@ export async function changeTranslation(
       translateY: transY,
       translateZ: transZ,
     })
-    .where(eq(models3dTable.id, id))
+    .where(and(eq(models3dTable.id, id), eq(models3dTable.userId, user.userId)))
     .returning();
 
   if (!updatedModel || updatedModel.length === 0) {
     throw new Error("Model not found or update failed");
   }
 
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "Edited Translation",
+    properties: {
+      modelId: id,
+    },
+  });
+
+  revalidatePath(`/models/view/${id}`);
+  redirect(`/models/view/${id}`);
   return updatedModel[0];
+}
+
+export async function deleteModel(id: number) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
+  await db
+    .delete(models3dTable)
+    .where(
+      and(eq(models3dTable.id, id), eq(models3dTable.userId, user.userId)),
+    );
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "Model Deleted",
+    properties: {
+      modelId: id,
+    },
+  });
+
+  revalidatePath("/models");
+  redirect("/models");
 }
