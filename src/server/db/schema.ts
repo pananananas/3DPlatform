@@ -40,6 +40,9 @@ export const models3d = createTable(
     rotateX:    doublePrecision("rotate_x").default(0).notNull(),
     rotateY:    doublePrecision("rotate_y").default(0).notNull(),
     rotateZ:    doublePrecision("rotate_z").default(0).notNull(),
+    centerX:    doublePrecision("center_x").default(0).notNull(),
+    centerY:    doublePrecision("center_y").default(0).notNull(),
+    centerZ:    doublePrecision("center_z").default(0).notNull(),
   },
   (table) => ({
     nameIndex: index("name_idx").on(table.name),

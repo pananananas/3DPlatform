@@ -1,25 +1,18 @@
 import { extractExtension, removeFileExtension } from "~/utils/filenames";
+import { DeleteModelDialog } from "~/components/delete-model-dialog";
 import NavigateBackButton from "~/components/navigate-back-button";
 import ViewModel from "~/components/3D/view-model";
 import { Button } from "~/components/ui/button";
+import { type Model3D } from "~/types/models";
 import { Badge } from "~/components/ui/badge";
+import { Suspense } from "react";
 import {
   changeRotation,
   changeTranslation,
-  deleteModel,
   getModel3d,
 } from "~/server/queries";
-import { type Model3D } from "~/types/models";
-import { Suspense } from "react";
-import { IconTrash } from "~/components/icons/icon-trash";
-import { IconAdjustments } from "~/components/icons/icon-adjustments";
-import { IconRotate } from "~/components/icons/icon-rotate";
-import { DeleteModelDialog } from "~/components/delete-model-dialog";
+import { UserCard } from "~/components/user-card";
 
-async function Model3DViewer({ id }: { id: number }) {
-  const model3d = await getModel3d(id);
-  return <ViewModel model={model3d} />;
-}
 
 function ModelInfo({ model }: { model: Model3D }) {
   return (
@@ -29,18 +22,6 @@ function ModelInfo({ model }: { model: Model3D }) {
           {removeFileExtension(model.name)}
         </h2>
         <Badge>{extractExtension(model.name)}</Badge>
-      </div>
-      <div className="flex flex-col gap-4 py-4">
-        <div>
-          <IconAdjustments />
-        </div>
-        <span className="ml-2">
-          Translation: {model.translateX}, {model.translateY}, {model.translateZ}
-        </span>
-        <span className="ml-2">
-          Rotation: {model.rotateX}, {model.rotateY}, {model.rotateZ}
-        </span>
-        <IconRotate />
       </div>
     </>
   );
@@ -52,6 +33,8 @@ export default async function ModelPage({
   params: { id: number };
 }) {
   const model3d = await getModel3d(params.id);
+  // console.log(model3d);
+
 
   return (
     <div className="h-full w-full">
@@ -75,6 +58,15 @@ export default async function ModelPage({
           >
             <Button type="submit">Reset Translation</Button>
           </form>
+          <div className="flex flex-col gap-4 py-4">
+            <span className="ml-2">
+              T: [{model3d.translateX}, {model3d.translateY}, {model3d.translateZ}]
+            </span>
+            <span className="ml-2">
+              R: [{model3d.rotateX}, {model3d.rotateY}, {model3d.rotateZ}]
+            </span>
+            <UserCard userId={model3d.userId} />
+          </div>
         </div>
       </div>
 
@@ -93,7 +85,7 @@ export default async function ModelPage({
           </div>
         }
       >
-        <Model3DViewer id={params.id} />
+        <ViewModel model={model3d} />
       </Suspense>
     </div>
   );

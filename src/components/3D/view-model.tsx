@@ -5,20 +5,22 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { type Model3D, type Vector3 } from "~/types/models";
 import { Splat, OrbitControls, useGLTF } from "@react-three/drei";
+import { extractExtension } from "~/utils/filenames";
 
 type ModelProps = {
   url: string;
+  modelName: string;
   rotation?: Vector3;
   translation?: Vector3;
 };
 
-function Model({ url, rotation, translation }: ModelProps) {
-  const fileExtension = url.split(".").pop()?.toLowerCase();
+function Model({ url, rotation, translation, modelName }: ModelProps) {
+  const fileExtension = extractExtension(modelName);
 
   switch (fileExtension) {
     case "glb":
     case "gltf":
-      return <GLTFModel url={url} />;
+      return <GLTFModel url={url} modelName={""} />;
     case "usdz":
     case "usdc":
     case "usd":
@@ -43,13 +45,12 @@ function Model({ url, rotation, translation }: ModelProps) {
       return null;
   }
 }
-function GLTFModel({ url, rotation, translation }: ModelProps) {
+function GLTFModel({ url, rotation, translation, modelName }: ModelProps) {
   const { scene } = useGLTF(url);
   return <primitive object={scene} />;
 }
 
 export default function ViewModel({ model }: { model: Model3D }) {
-
   const modelRotation: Vector3 = {
     x: model.rotateX,
     y: model.rotateY,
@@ -61,12 +62,18 @@ export default function ViewModel({ model }: { model: Model3D }) {
     y: model.translateY,
     z: model.translateZ,
   };
+
   return (
     <Canvas camera={{ position: [10, 5, 13], fov: 25 }}>
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <Suspense fallback={null}>
-        <Model url={model.url} rotation={modelRotation} translation={modelTranslation} />
+        <Model
+          url={model.url}
+          modelName={model.name}
+          rotation={modelRotation}
+          translation={modelTranslation}
+        />
       </Suspense>
       <OrbitControls maxDistance={100} minDistance={1} />
       <Lights />

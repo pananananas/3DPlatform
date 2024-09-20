@@ -5,9 +5,19 @@
 
 ## Essential:
 
-- [ ] download 3d model button
-- [ ] edit model (rotation etc)
+Side panel:
+- [ ] edit name model
+- [ ] edit rotation/translatio
+
+- [ ] center point
+
 - [ ] delete button
+
+- [ ] author info
+
+- [ ] download 3d model button
+
+
 
 - [ ] use replicate to convert ply to splat on upload
 
