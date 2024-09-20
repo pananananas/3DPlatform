@@ -5,6 +5,8 @@
 
 ## Essential:
 
+- [ ] user profile route
+
 Side panel:
 - [ ] edit name model
 - [ ] edit rotation/translatio
