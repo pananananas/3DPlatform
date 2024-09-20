@@ -7,6 +7,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ViewTransitions } from "next-view-transitions";
 import { CSPostHogProvider } from "./_analytics/provider";
+// import { auth } from "@clerk/nextjs/server";
 
 export const metadata: Metadata = {
   title: "3D Platform",
@@ -17,6 +18,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // const user = auth();
+  // let userId:string = "";
+
+  // if (!user.userId) userId = user.userId;
+
   return (
     <ClerkProvider>
       <CSPostHogProvider>

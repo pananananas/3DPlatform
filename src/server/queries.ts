@@ -28,6 +28,15 @@ export async function getMyModels3d() {
   return models3d;
 }
 
+export async function getUsersModels3d( userId: string) {
+
+  const models3d = await db.query.models3d.findMany({
+    where: (model, { eq }) => eq(model.userId, userId),
+    orderBy: (model, { desc }) => desc(model.createdAt),
+  });
+  return models3d;
+}
+
 export async function getModel3d(id: number) {
   const model3d = await db.query.models3d.findFirst({
     where: (model, { eq }) => eq(model.id, id),

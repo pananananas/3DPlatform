@@ -5,7 +5,7 @@
 
 ## Essential:
 
-- [ ] user profile route
+- [x] user profile route
 
 Side panel:
 - [ ] edit name model
@@ -13,9 +13,9 @@ Side panel:
 
 - [ ] center point
 
-- [ ] delete button
+- [x] delete button
 
-- [ ] author info
+- [x] author info
 
 - [ ] download 3d model button
 
