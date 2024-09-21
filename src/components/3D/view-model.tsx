@@ -3,7 +3,7 @@ import { Splat, OrbitControls, useGLTF, PerspectiveCamera } from "@react-three/d
 import { type Model3D, type Vector3 } from "~/types/models";
 import { extractExtension } from "~/utils/filenames";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useEffect } from "react";
+import { Suspense, } from "react";
 import { toast } from "sonner";
 import Lights from "./lights";
 
@@ -82,24 +82,6 @@ export default function ViewModel({ model }: { model: Model3D }) {
     y: model.centerY,
     z: model.centerZ,
   };
-  
-  // const cameraRef = useRef();
-  // const controlsRef = useRef();
-
-  // useEffect(() => {
-  //   // if (cameraRef.current && controlsRef.current) {
-  //   //   // Set camera position relative to the model center
-  //   //   cameraRef.current.position.set(
-  //   //     modelCenter.x + 10,
-  //   //     modelCenter.y + 5,
-  //   //     modelCenter.z + 13
-  //   //   );
-      
-  //   //   // Update controls target to the model center
-  //   //   controlsRef.current.target.set(modelCenter.x, modelCenter.y, modelCenter.z);
-  //   //   controlsRef.current.update();
-  //   // }
-  // }, [modelCenter]);
 
   return (
     <Canvas >

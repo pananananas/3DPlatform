@@ -30,20 +30,24 @@ export default function ModelControls({
           {isOwner && <DeleteModelDialog params={params} />}
         </div>
       </div>
-      <div className="flex flex-col gap-2 pt-3">
-        <h3 className="text-md">Rotation</h3>
-        <ModifyXYZ model={model} id={params.id} variable="rotate" />
-      </div>
+      {isOwner && (
+        <>
+          <div className="flex flex-col gap-2 pt-3">
+            <h3 className="text-md">Rotation</h3>
+            <ModifyXYZ model={model} id={params.id} variable="rotate" />
+          </div>
 
-      <div className="flex flex-col gap-2 pt-3">
-        <h3 className="text-md">Translation</h3>
-        <ModifyXYZ model={model} id={params.id} variable="translate" />
-      </div>
+          <div className="flex flex-col gap-2 pt-3">
+            <h3 className="text-md">Translation</h3>
+            <ModifyXYZ model={model} id={params.id} variable="translate" />
+          </div>
 
-      <div className="flex flex-col gap-2 pt-3">
-        <h3 className="text-md">Center Point</h3>
-        <ModifyXYZ model={model} id={params.id} variable="center" />
-      </div>
+          <div className="flex flex-col gap-2 pt-3">
+            <h3 className="text-md">Center Point</h3>
+            <ModifyXYZ model={model} id={params.id} variable="center" />
+          </div>
+        </>
+      )}
     </div>
   );
 }
