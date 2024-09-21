@@ -21,12 +21,14 @@ export default function ModelControls({
     <div className="flex flex-col gap-4 py-4">
       <div className="flex flex-row justify-between gap-2">
         <UserCard userId={model.userId} />
+        <div className="flex gap-2">
         <Link href={model.url}>
           <Button variant="outline" size="icon">
             <LucideDownload strokeWidth={1.5} />
           </Button>
         </Link>
         {isOwner && <DeleteModelDialog params={params} />}
+        </div>
       </div>
       {/* Rotation Controls */}
       <div className="flex flex-col gap-2 pt-3">
