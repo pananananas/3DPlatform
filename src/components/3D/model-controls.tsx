@@ -24,7 +24,7 @@ export default function ModelControls({
         <div className="flex gap-2">
           <Link href={model.url}>
             <Button variant="outline" size="icon">
-              <LucideDownload strokeWidth={1.5} />
+              <LucideDownload strokeWidth={1.5} className="h-5 w-5" />
             </Button>
           </Link>
           {isOwner && <DeleteModelDialog params={params} />}
@@ -35,9 +35,14 @@ export default function ModelControls({
         <ModifyXYZ model={model} id={params.id} variable="rotate" />
       </div>
 
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col gap-2 pt-3">
         <h3 className="text-md">Translation</h3>
         <ModifyXYZ model={model} id={params.id} variable="translate" />
+      </div>
+
+      <div className="flex flex-col gap-2 pt-3">
+        <h3 className="text-md">Center Point</h3>
+        <ModifyXYZ model={model} id={params.id} variable="center" />
       </div>
     </div>
   );

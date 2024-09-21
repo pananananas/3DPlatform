@@ -28,8 +28,7 @@ export async function getMyModels3d() {
   return models3d;
 }
 
-export async function getUsersModels3d( userId: string) {
-
+export async function getUsersModels3d(userId: string) {
   const models3d = await db.query.models3d.findMany({
     where: (model, { eq }) => eq(model.userId, userId),
     orderBy: (model, { desc }) => desc(model.createdAt),
@@ -108,6 +107,42 @@ export async function changeTranslation(
   analyticsServerClient.capture({
     distinctId: user.userId,
     event: "Edited Translation",
+    properties: {
+      modelId: id,
+    },
+  });
+
+  revalidatePath(`/models/view/${id}`);
+  redirect(`/models/view/${id}`);
+  return updatedModel[0];
+}
+
+export async function changeCenterPoint(
+  id: number,
+  centerX: number,
+  centerY: number,
+  centerZ: number,
+) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
+  const updatedModel = await db
+    .update(models3dTable)
+    .set({
+      centerX,
+      centerY,
+      centerZ,
+    })
+    .where(and(eq(models3dTable.id, id), eq(models3dTable.userId, user.userId)))
+    .returning();
+
+  if (!updatedModel || updatedModel.length === 0) {
+    throw new Error("Model not found or update failed");
+  }
+
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "Edited Center Point",
     properties: {
       modelId: id,
     },

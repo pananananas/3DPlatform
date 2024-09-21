@@ -1,6 +1,6 @@
 import { Button } from "~/components/ui/button";
-import { IconTrash } from "./icons/icon-trash";
 import { deleteModel } from "~/server/queries";
+import { LucideTrash2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,7 @@ export function DeleteModelDialog({ params }: { params: { id: number } }) {
     <Dialog>
       <DialogTrigger asChild>
         <Button type="submit" variant="destructive" size="icon">
-          <IconTrash />
+          <LucideTrash2 strokeWidth={1.5} className="h-5 w-5" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

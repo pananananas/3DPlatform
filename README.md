@@ -7,8 +7,7 @@
 
 Side panel:
 
-- [ ] edit name model
-- [ ] edit center point
+- [ ] render center point, camera animations (https://codesandbox.io/p/sandbox/sew669?file=/src/App.js:17,14)
 
 - [ ] use replicate to convert ply to splat on upload
 
@@ -20,6 +19,7 @@ Side panel:
 
 - [x] author info
 
+- [x] edit center point
 
 - [ ] camera animations (https://drei.docs.pmnd.rs)
 

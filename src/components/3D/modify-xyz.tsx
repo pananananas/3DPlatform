@@ -1,4 +1,8 @@
-import { changeRotation, changeTranslation } from "~/server/queries";
+import {
+  changeRotation,
+  changeTranslation,
+  changeCenterPoint,
+} from "~/server/queries";
 import { type Model3D } from "~/types/models";
 import { Button } from "../ui/button";
 
@@ -9,7 +13,7 @@ export default function ModifyXYZ({
 }: {
   model: Model3D;
   id: number;
-  variable: "rotate" | "translate" | "centerPoint";
+  variable: "rotate" | "translate" | "center";
 }) {
   return (
     <>
@@ -55,6 +59,18 @@ export default function ModifyXYZ({
                     newTranslation.X,
                     newTranslation.Y,
                     newTranslation.Z,
+                  );
+                } else if (variable === "center") {
+                  const newCenterPoint = {
+                    X: axis === "X" ? model.centerX - 1 : model.centerX,
+                    Y: axis === "Y" ? model.centerY - 1 : model.centerY,
+                    Z: axis === "Z" ? model.centerZ - 1 : model.centerZ,
+                  };
+                  await changeCenterPoint(
+                    id,
+                    newCenterPoint.X,
+                    newCenterPoint.Y,
+                    newCenterPoint.Z,
                   );
                 }
               }}
@@ -112,6 +128,18 @@ export default function ModifyXYZ({
                     newTranslation.X,
                     newTranslation.Y,
                     newTranslation.Z,
+                  );
+                } else if (variable === "center") {
+                  const newCenterPoint = {
+                    X: axis === "X" ? model.centerX + 1 : model.centerX,
+                    Y: axis === "Y" ? model.centerY + 1 : model.centerY,
+                    Z: axis === "Z" ? model.centerZ + 1 : model.centerZ,
+                  };
+                  await changeCenterPoint(
+                    id,
+                    newCenterPoint.X,
+                    newCenterPoint.Y,
+                    newCenterPoint.Z,
                   );
                 }
               }}

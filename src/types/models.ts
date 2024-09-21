@@ -19,6 +19,9 @@ export interface Model3D {
   rotateX:    number;
   rotateY:    number;
   rotateZ:    number;
+  centerX:    number;
+  centerY:    number;
+  centerZ:    number;
 }
 
 export interface Models {

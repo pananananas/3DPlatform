@@ -4,8 +4,8 @@ import ModelControls from "~/components/3D/model-controls";
 import ViewModel from "~/components/3D/view-model";
 import { Button } from "~/components/ui/button";
 import { type Model3D } from "~/types/models";
-import { Badge } from "~/components/ui/badge";
 import { getModel3d } from "~/server/queries";
+import { Badge } from "~/components/ui/badge";
 import { Suspense } from "react";
 import {
   Drawer,
