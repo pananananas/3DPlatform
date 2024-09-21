@@ -37,7 +37,7 @@ function DrawerModelControls({
 }) {
   return (
     <Drawer>
-      <DrawerTrigger>
+      <DrawerTrigger asChild>
         <Button variant="outline">Model Info</Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -45,14 +45,11 @@ function DrawerModelControls({
           <DrawerTitle>
             <ModelInfo model={model} />
           </DrawerTitle>
-
           <ModelControls model={model} params={params} />
         </DrawerHeader>
         <DrawerFooter>
-          <DrawerClose>
-            <div className="flex justify-end">
-              <Button variant="outline">Close</Button>
-            </div>
+          <DrawerClose asChild>
+            <Button variant="outline">Close</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

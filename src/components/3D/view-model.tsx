@@ -20,7 +20,7 @@ function Model({ url, rotation, translation, modelName }: ModelProps) {
   switch (fileExtension) {
     case "glb":
     case "gltf":
-      return <GLTFModel url={url} modelName={""} />;
+      return <GLTFModel url={url} modelName={""} rotation={rotation} />;
     case "usdz":
     case "usdc":
     case "usd":
@@ -47,7 +47,12 @@ function Model({ url, rotation, translation, modelName }: ModelProps) {
 }
 function GLTFModel({ url, rotation, translation, modelName }: ModelProps) {
   const { scene } = useGLTF(url);
-  return <primitive object={scene} />;
+  return (
+    <primitive
+      object={scene}
+      rotation={[rotation?.x ?? 0, rotation?.y ?? 0, rotation?.z ?? 0]}
+    />
+  );
 }
 
 export default function ViewModel({ model }: { model: Model3D }) {

@@ -6,7 +6,7 @@ export async function UserCard({ userId }: { userId: string }) {
   const response = await clerkClient.users.getUser(userId);
 
   return (
-    <Link href={`/profile/${userId}`}>
+    <Link href={`/profile/${userId}`} className="flex items-center gap-2">
       <Button variant="ghost" size="sm" className="h-8 rounded-full pl-0">
         <div className="flex items-center gap-2">
           <img
