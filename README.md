@@ -5,23 +5,20 @@
 
 ## Essential:
 
-- [x] user profile route
-
 Side panel:
-- [ ] edit name model
-- [ ] edit rotation/translatio
 
-- [ ] center point
+- [ ] edit name model
+- [ ] edit center point
+
+- [ ] use replicate to convert ply to splat on upload
+
+- [x] download 3d model button
+
+- [x] edit rotation/translation
 
 - [x] delete button
 
 - [x] author info
-
-- [ ] download 3d model button
-
-
-
-- [ ] use replicate to convert ply to splat on upload
 
 
 - [ ] camera animations (https://drei.docs.pmnd.rs)
@@ -56,6 +53,7 @@ Maybe later:
 
 - [x] db update to include 3d models
 
+
 - [x] page with list of models 3d models
 - [x] rendering 3d using react three fiber
 - [x] page with 3d model viewer
@@ -67,3 +65,5 @@ Maybe later:
 - [x] move model list to "/models" route
 - [x] add placeholder landing page
 - [x] add support for multiple model types
+
+- [x] user profile route
