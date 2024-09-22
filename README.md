@@ -8,20 +8,16 @@
 Side panel:
 
 - [ ] render center point, camera animations (https://codesandbox.io/p/sandbox/sew669?file=/src/App.js:17,14)
+- [ ] camera animations (https://drei.docs.pmnd.rs)
 
 - [ ] use replicate to convert ply to splat on upload
+    - [ ] get the python file for convertion
+    - [ ] dockerize the python script
+    - [ ] do the nessesary things to run the script in replicate
+    - [ ] connect API endpoint to run on upload
 
-- [x] download 3d model button
-
-- [x] edit rotation/translation
-
-- [x] delete button
-
-- [x] author info
-
-- [x] edit center point
-
-- [ ] camera animations (https://drei.docs.pmnd.rs)
+AI Model generation:
+- [ ] generate models using replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
 
 - [ ] edit colors (color picker) (https://uiwjs.github.io/react-color/)
 
@@ -32,8 +28,6 @@ Side panel:
 
 - [ ] display model previews in model list
 
-AI Model generation:
-- [ ] generate models using replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
 
 Maybe later:
 - [x] analytics - PostHog
@@ -67,3 +61,13 @@ Maybe later:
 - [x] add support for multiple model types
 
 - [x] user profile route
+
+- [x] download 3d model button
+
+- [x] edit rotation/translation
+
+- [x] delete button
+
+- [x] author info
+
+- [x] edit center point

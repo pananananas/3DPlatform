@@ -18,10 +18,6 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // const user = auth();
-  // let userId:string = "";
-
-  // if (!user.userId) userId = user.userId;
 
   return (
     <ClerkProvider>
