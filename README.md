@@ -1,7 +1,6 @@
 # 3D Platform
 
-## TODOS:
-
+# TODOS:
 
 ## Essential:
 
@@ -11,10 +10,10 @@ Side panel:
 - [ ] camera animations (https://drei.docs.pmnd.rs)
 
 - [ ] use replicate to convert ply to splat on upload
-    - [ ] get the python file for convertion
-    - [ ] dockerize the python script
-    - [ ] do the nessesary things to run the script in replicate
-    - [ ] connect API endpoint to run on upload
+  - [ ] get the python file for convertion
+  - [ ] dockerize the python script
+  - [ ] do the nessesary things to run the script in replicate
+  - [ ] connect API endpoint to run on upload
 
 AI Model generation:
 - [ ] generate models using replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
