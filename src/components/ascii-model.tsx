@@ -1,33 +1,21 @@
 "use client";
 
 import { AsciiRenderer, Float } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import type { Mesh } from 'three';
+import { Canvas } from "@react-three/fiber";
 import Lights from "./3D/lights";
-import { useRef } from "react";
-
 
 function TorusKnot() {
-  const ref = useRef<Mesh>(null);
-
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x += delta * 0.5;
-      ref.current.rotation.y += delta * 0.5;
-    }
-  });
-
   return (
     <Float
-      speed={2}
-      rotationIntensity={10} // XYZ rotation intensity, defaults to 1
-      floatIntensity={1} // Up/down float intensity, defaults to 1
+      speed={1.5}
+      rotationIntensity={10}
+      floatIntensity={1}
     >
-    <mesh scale={[1.5, 1.5, 1.5]}>
-      <torusKnotGeometry args={[1, 0.2, 128, 32]} />
-      <meshStandardMaterial color="white" />
-    </mesh>
-</Float>
+      <mesh scale={[1.5, 1.5, 1.5]}>
+        <torusKnotGeometry args={[1, 0.2, 128, 32]} />
+        <meshStandardMaterial color="white" />
+      </mesh>
+    </Float>
   );
 }
 
