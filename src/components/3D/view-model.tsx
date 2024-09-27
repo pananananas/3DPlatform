@@ -3,7 +3,7 @@ import { Splat, OrbitControls, useGLTF, PerspectiveCamera } from "@react-three/d
 import { type Model3D, type Vector3 } from "~/types/models";
 import { extractExtension } from "~/utils/filenames";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, } from "react";
+import { Suspense } from "react";
 import { toast } from "sonner";
 import Lights from "./lights";
 

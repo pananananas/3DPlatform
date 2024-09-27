@@ -15,6 +15,7 @@ Side panel:
   - [ ] do the nessesary things to run the script in replicate
   - [ ] connect API endpoint to run on upload
 
+
 AI Model generation:
 - [ ] generate models using replicate (https://replicate.com/camenduru/lgm?input=nodejs&output=json)
 
