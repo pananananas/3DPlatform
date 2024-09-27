@@ -1,12 +1,12 @@
 "use client";
 
-import { useTransitionRouter } from "next-view-transitions";
 import { UploadDropzone } from "~/utils/uploadthing";
+import { useRouter } from "next/navigation";
 import posthog from "posthog-js";
 import { toast } from "sonner";
 
 export default function ModelUploadDropzone() {
-  const router = useTransitionRouter();
+  const router = useRouter();
 
   return (
     <UploadDropzone

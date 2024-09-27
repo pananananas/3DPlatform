@@ -4,10 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import { TopNav } from "~/components/topnav";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "~/components/ui/sonner";
-import { ThemeProvider } from "~/components/theme-provider";
-import { ViewTransitions } from "next-view-transitions";
 import { CSPostHogProvider } from "./_analytics/provider";
-// import { auth } from "@clerk/nextjs/server";
+import { ThemeProvider } from "~/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "3D Platform",
@@ -18,27 +16,20 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-
   return (
     <ClerkProvider>
       <CSPostHogProvider>
-        <ViewTransitions>
-          <html lang="en" className={`${GeistMono.variable}`}>
-            <body>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-              >
-                <div className="flex h-screen flex-col">
-                  <TopNav />
-                  {children}
-                </div>
-              </ThemeProvider>
-              <Toaster />
-            </body>
-          </html>
-        </ViewTransitions>
+        <html lang="en" className={`${GeistMono.variable}`}>
+          <body>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="flex h-screen flex-col">
+                <TopNav />
+                {children}
+              </div>
+            </ThemeProvider>
+            <Toaster />
+          </body>
+        </html>
       </CSPostHogProvider>
     </ClerkProvider>
   );

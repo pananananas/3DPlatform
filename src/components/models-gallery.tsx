@@ -2,7 +2,7 @@
 import { extractExtension, removeFileExtension } from "~/utils/filenames";
 import ModelUploadDropzone from "./3d-model-upload-dropzone";
 import { Badge } from "~/components/ui/badge";
-import { Link } from "next-view-transitions";
+import Link from "next/link";;
 import { type Models } from "~/types/models";
 import { SignedIn } from "@clerk/nextjs";
 import {

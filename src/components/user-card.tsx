@@ -1,5 +1,5 @@
 import { clerkClient } from "@clerk/nextjs/server";
-import { Link } from "next-view-transitions";
+import Link from "next/link";;
 import { Button } from "./ui/button";
 
 export async function UserCard({ userId }: { userId: string }) {

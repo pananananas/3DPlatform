@@ -3,7 +3,7 @@ import { UserCard } from "~/components/user-card";
 import { Button } from "~/components/ui/button";
 import { LucideDownload } from "lucide-react";
 import { type Model3D } from "~/types/models";
-import { Link } from "next-view-transitions";
+import Link from "next/link";;
 import { auth } from "@clerk/nextjs/server";
 import ModifyXYZ from "./modify-xyz";
 

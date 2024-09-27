@@ -2,7 +2,7 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { AddModelDialog } from "./add-model-dialog";
 import { ThemeToggle } from "./theme-toggle";
-import { Link } from "next-view-transitions";
+import Link from "next/link";;
 import { IconBox } from "./icons/icon-box";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
