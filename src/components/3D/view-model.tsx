@@ -35,7 +35,11 @@ function Model({ url, rotation, translation, modelName, center }: ModelProps) {
         <Splat
           src={url}
           rotation={[rotation?.x ?? 0, rotation?.y ?? 0, rotation?.z ?? 0]}
-          position={[translation?.x ?? 0, translation?.y ?? 0, translation?.z ?? 0]}
+          position={[
+            translation?.x ?? 0,
+            translation?.y ?? 0,
+            translation?.z ?? 0,
+          ]}
           // rotation={[0, Math.PI, Math.PI]}
           // toneMapped={false}
           // alphaTest={0.1}
@@ -84,10 +88,10 @@ export default function ViewModel({ model }: { model: Model3D }) {
   };
 
   return (
-    <Canvas >
+    <Canvas>
       <PerspectiveCamera makeDefault fov={25} position={[10, 5, 13]} />
       <ambientLight intensity={0.5} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+
       <Suspense fallback={null}>
         <Model
           url={model.url}

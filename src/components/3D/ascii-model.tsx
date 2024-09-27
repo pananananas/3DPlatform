@@ -10,7 +10,6 @@ function TorusKnot() {
       <mesh scale={[0.2, 0.2, 0.2]}>
         <torusKnotGeometry args={[10, 2, 128, 30, 3, 5]} />
         <meshStandardMaterial color="white" />
-        
       </mesh>
     </Float>
   );
