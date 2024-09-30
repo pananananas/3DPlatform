@@ -5,7 +5,6 @@ import { extractExtension } from "~/utils/filenames";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { toast } from "sonner";
-import Lights from "./lights";
 
 type ModelProps = {
   url: string;
@@ -102,7 +101,9 @@ export default function ViewModel({ model }: { model: Model3D }) {
         />
       </Suspense>
       <OrbitControls maxDistance={100} minDistance={1} />
-      <Lights />
+      <ambientLight intensity={0.25 * Math.PI} />
+      <spotLight decay={0} position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <pointLight decay={0} position={[-10, 0, -5]} intensity={6} />
     </Canvas>
   );
 }
