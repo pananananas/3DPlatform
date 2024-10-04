@@ -12,10 +12,13 @@ export default async function HomePage() {
         <h2 className="mb-6 text-center text-[18px] font-bold leading-none sm:text-[20px] md:text-[30px]">
           Discover 3D models created with AI
         </h2>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center gap-4">
           {/* <Button variant="secondary" className="mr-4"></Button> */}
           <Link href={`/models`} className="">
             <Button className="items-center justify-center">3D Models</Button>
+          </Link>
+          <Link href={`/tatoo`} className="">
+            <Button className="items-center justify-center">Tatoo</Button>
           </Link>
         </div>
         <AsciiModel />

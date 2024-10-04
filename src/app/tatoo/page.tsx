@@ -43,52 +43,52 @@ function Bun() {
   return (
     <mesh castShadow receiveShadow geometry={bunny.geometry} dispose={null}>
       <meshStandardMaterial color="red" transparent={false} opacity={0.5} />
-      <Decal position={[0.5, 0.5, 0.5]} scale={0.7} map={texture} />
+      <Decal position={[0.5, 1, 0.4]} scale={0.7} map={texture} />
     </mesh>
   );
 }
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-function Pose() {
-  const { nodes } = useGLTF(
-    "https://utfs.io/f/Q2s6v1FdRkt7gBKvwsqhJchCTLuHzKWOd43UB18D9QeNym6w",
-  );
-  const texture = useTexture(
-    "https://utfs.io/f/Q2s6v1FdRkt7t06Vve512ofBlHsJOiWUvRm80PyeXnFIZEdx",
-  );
-  console.log("Nodes:", nodes);
+// function Pose() {
+//   const { nodes } = useGLTF(
+//     "https://utfs.io/f/Q2s6v1FdRkt7gBKvwsqhJchCTLuHzKWOd43UB18D9QeNym6w",
+//   );
+//   const texture = useTexture(
+//     "https://utfs.io/f/Q2s6v1FdRkt7t06Vve512ofBlHsJOiWUvRm80PyeXnFIZEdx",
+//   );
+//   console.log("Nodes:", nodes);
 
-  const pose = nodes.Geode as Mesh | undefined;
+//   const pose = nodes.Geode as Mesh | undefined;
 
-  useEffect(() => {
-    if (pose?.geometry.attributes) {
-      console.log("Geometry Attributes:", pose.geometry.attributes);
-    }
-  }, [pose]);
+//   useEffect(() => {
+//     if (pose?.geometry.attributes) {
+//       console.log("Geometry Attributes:", pose.geometry.attributes);
+//     }
+//   }, [pose]);
 
-  if (!pose) {
-    console.error("Pose node not found in the GLTF model.");
-    return null;
-  }
+//   if (!pose) {
+//     console.error("Pose node not found in the GLTF model.");
+//     return null;
+//   }
 
-  return (
-    <mesh
-      castShadow
-      receiveShadow
-      geometry={pose.geometry}
-      material={pose.material}
-      dispose={null}
-    >
-      {/* <Decal
-        position={[0, 0, 0.1]} // Slightly offset along the Z-axis
-        rotation={[0, 0, 0]} // Ensure rotation is set
-        scale={0.7}
-        map={texture}
-      /> */}
-    </mesh>
-  );
-}
+//   return (
+//     <mesh
+//       castShadow
+//       receiveShadow
+//       geometry={pose.geometry}
+//       material={pose.material}
+//       dispose={null}
+//     >
+//       {/* <Decal
+//         position={[0, 0, 0.1]} // Slightly offset along the Z-axis
+//         rotation={[0, 0, 0]} // Ensure rotation is set
+//         scale={0.7}
+//         map={texture}
+//       /> */}
+//     </mesh>
+//   );
+// }
 
 
 // face       https://utfs.io/f/Q2s6v1FdRkt7W1EeK8tXjQ48RWtOfl6cTA5MokFHvgyaJEsK
