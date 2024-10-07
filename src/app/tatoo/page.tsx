@@ -7,6 +7,7 @@ import {
   OrbitControls,
 } from "@react-three/drei";
 import type { Mesh } from "three";
+import { useControls } from 'leva'
 
 export default function Test() {
   return (
@@ -25,6 +26,28 @@ export default function Test() {
 }
 
 function Bun() {
+  const { x,y,z } = useControls({
+    x: {
+      value: 0.5,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+    y: {
+      value: 1,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+    z: {
+      value: 0,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+  })
+  
+
   const { nodes } = useGLTF(
     "https://utfs.io/f/Q2s6v1FdRkt7PZrPQhODpXaogRnTBA36Shfk7GvZOIMiQrKw",
   );
@@ -43,7 +66,7 @@ function Bun() {
   return (
     <mesh castShadow receiveShadow geometry={bunny.geometry} dispose={null}>
       <meshStandardMaterial color="red" transparent={false} opacity={0.5} />
-      <Decal position={[0.5, 1, 0.4]} scale={0.7} map={texture} />
+      <Decal position={[x,y,z]} scale={0.7} map={texture} />
     </mesh>
   );
 }
