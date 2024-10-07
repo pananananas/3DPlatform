@@ -50,9 +50,9 @@ export default function ModifyXYZ({
                   );
                 } else if (variable === "translate") {
                   const newTranslation = {
-                    X: axis === "X" ? model.translateX - 1 : model.translateX,
-                    Y: axis === "Y" ? model.translateY - 1 : model.translateY,
-                    Z: axis === "Z" ? model.translateZ - 1 : model.translateZ,
+                    X: axis === "X" ? model.translateX - 0.5 : model.translateX,
+                    Y: axis === "Y" ? model.translateY - 0.5 : model.translateY,
+                    Z: axis === "Z" ? model.translateZ - 0.5 : model.translateZ,
                   };
                   await changeTranslation(
                     id,
@@ -62,9 +62,9 @@ export default function ModifyXYZ({
                   );
                 } else if (variable === "center") {
                   const newCenterPoint = {
-                    X: axis === "X" ? model.centerX - 1 : model.centerX,
-                    Y: axis === "Y" ? model.centerY - 1 : model.centerY,
-                    Z: axis === "Z" ? model.centerZ - 1 : model.centerZ,
+                    X: axis === "X" ? model.centerX - 0.5 : model.centerX,
+                    Y: axis === "Y" ? model.centerY - 0.5 : model.centerY,
+                    Z: axis === "Z" ? model.centerZ - 0.5 : model.centerZ,
                   };
                   await changeCenterPoint(
                     id,
@@ -119,9 +119,9 @@ export default function ModifyXYZ({
                   );
                 } else if (variable === "translate") {
                   const newTranslation = {
-                    X: axis === "X" ? model.translateX + 1 : model.translateX,
-                    Y: axis === "Y" ? model.translateY + 1 : model.translateY,
-                    Z: axis === "Z" ? model.translateZ + 1 : model.translateZ,
+                    X: axis === "X" ? model.translateX + 0.5 : model.translateX,
+                    Y: axis === "Y" ? model.translateY + 0.5 : model.translateY,
+                    Z: axis === "Z" ? model.translateZ + 0.5 : model.translateZ,
                   };
                   await changeTranslation(
                     id,
@@ -131,9 +131,9 @@ export default function ModifyXYZ({
                   );
                 } else if (variable === "center") {
                   const newCenterPoint = {
-                    X: axis === "X" ? model.centerX + 1 : model.centerX,
-                    Y: axis === "Y" ? model.centerY + 1 : model.centerY,
-                    Z: axis === "Z" ? model.centerZ + 1 : model.centerZ,
+                    X: axis === "X" ? model.centerX + 0.5 : model.centerX,
+                    Y: axis === "Y" ? model.centerY + 0.5 : model.centerY,
+                    Z: axis === "Z" ? model.centerZ + 0.5 : model.centerZ,
                   };
                   await changeCenterPoint(
                     id,

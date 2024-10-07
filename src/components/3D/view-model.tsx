@@ -11,10 +11,9 @@ type ModelProps = {
   modelName: string;
   rotation?: Vector3;
   translation?: Vector3;
-  center?: Vector3;
 };
 
-function Model({ url, rotation, translation, modelName, center }: ModelProps) {
+function Model({ url, rotation, translation, modelName }: ModelProps) {
   const fileExtension = extractExtension(modelName);
 
   switch (fileExtension) {
@@ -54,15 +53,17 @@ function GLTFModel({
   url,
   rotation,
   translation,
-  modelName,
-  center,
 }: ModelProps) {
   const { scene } = useGLTF(url);
   return (
     <primitive
       object={scene}
       rotation={[rotation?.x ?? 0, rotation?.y ?? 0, rotation?.z ?? 0]}
-      position={[translation?.x ?? 0, translation?.y ?? 0, translation?.z ?? 0]}
+      position={[
+        translation?.x ?? 0,
+        translation?.y ?? 0,
+        translation?.z ?? 0,
+      ]}
     />
   );
 }
@@ -97,10 +98,9 @@ export default function ViewModel({ model }: { model: Model3D }) {
           modelName={model.name}
           rotation={modelRotation}
           translation={modelTranslation}
-          center={modelCenter}
         />
       </Suspense>
-      <OrbitControls maxDistance={100} minDistance={1} />
+      <OrbitControls maxDistance={100} minDistance={0.2}  target={[modelCenter.x, modelCenter.y, modelCenter.z]} />
       <ambientLight intensity={0.25 * Math.PI} />
       <spotLight decay={0} position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <pointLight decay={0} position={[-10, 0, -5]} intensity={6} />
