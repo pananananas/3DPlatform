@@ -15,6 +15,7 @@ export default function Test() {
         <Bun />
         {/* <Snail /> */}
         {/* <Face /> */}
+        {/* <Bear/> */}
       </group>
       <OrbitControls />
     </Canvas>
@@ -174,6 +175,41 @@ function Bun() {
 
 //   );
 // }
+
+
+// function Bear() {
+//   const controls = TatooControls();
+  
+//   const { nodes } = useGLTF(
+//     "https://utfs.io/f/Q2s6v1FdRkt7p7AiGzqzTHgxL2AS4J93cqmsMWtjeaUD1KIw",
+//   );
+
+//   const texture = useTexture(
+//     "https://utfs.io/f/Q2s6v1FdRkt7t06Vve512ofBlHsJOiWUvRm80PyeXnFIZEdx",
+//   );
+//   console.log(nodes)
+//   const bear = nodes.geometry_0 as Mesh | undefined;
+  
+//   if (!bear) {
+//     console.log(nodes)
+//     console.error("Bunny node not found in the GLTF model.");
+//     return null;
+//   }
+
+//   return (
+//     <mesh castShadow receiveShadow geometry={bear.geometry} >
+//       <meshStandardMaterial color="red" transparent={false} opacity={0.5} />
+//       <Decal
+//         position={[controls.orbitX, controls.orbitY, controls.orbitZ]}
+//         rotation={[controls.rotX, controls.rotY, controls.rotZ]}
+//         scale={controls.scale}
+//         map={texture}
+//       />
+//     </mesh>
+//   );
+// }
+
+// Bear       https://utfs.io/f/Q2s6v1FdRkt7p7AiGzqzTHgxL2AS4J93cqmsMWtjeaUD1KIw
 
 // face       https://utfs.io/f/Q2s6v1FdRkt7W1EeK8tXjQ48RWtOfl6cTA5MokFHvgyaJEsK
 

@@ -20,9 +20,9 @@ export function TopNav() {
           Models
         </Button>
       </Link>
-      <Link href="/scenes" className="w-full justify-start">
+      <Link href="/tatoo" className="w-full justify-start">
         <Button variant="ghost" className="w-full justify-start">
-          Scenes
+          Tatoo
         </Button>
       </Link>
 
@@ -62,8 +62,8 @@ export function TopNav() {
               <Link href="/models">
                 <Button variant="ghost">Models</Button>
               </Link>
-              <Link href="/scenes">
-                <Button variant="ghost">Scenes</Button>
+              <Link href="/tatoo">
+                <Button variant="ghost">Tatoo</Button>
               </Link>
               <SignedIn>
                 <Link href="/profile">
