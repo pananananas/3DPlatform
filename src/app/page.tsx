@@ -13,12 +13,13 @@ export default async function HomePage() {
           Discover 3D models created with AI
         </h2>
         <div className="flex items-center justify-center gap-4">
-          {/* <Button variant="secondary" className="mr-4"></Button> */}
+          <Link href={`/tatoo`} className="">
+            <Button className="items-center justify-center" variant="outline">
+              Tatoo Preview
+            </Button>
+          </Link>
           <Link href={`/models`} className="">
             <Button className="items-center justify-center">3D Models</Button>
-          </Link>
-          <Link href={`/tatoo`} className="">
-            <Button className="items-center justify-center">Tatoo</Button>
           </Link>
         </div>
         <AsciiModel />
