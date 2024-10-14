@@ -1,7 +1,8 @@
 "use client";
 import { Splat, OrbitControls, useGLTF, PerspectiveCamera } from "@react-three/drei";
-import { type Model3D, type Vector3 } from "~/types/models";
 import { extractExtension } from "~/utils/filenames";
+import { type Model3D } from "~/server/db/schema"
+import { type Vector3 } from "~/types/models";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { toast } from "sonner";

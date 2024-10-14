@@ -2,8 +2,8 @@ import { extractExtension, removeFileExtension } from "~/utils/filenames";
 import NavigateBackButton from "~/components/navigate-back-button";
 import ModelControls from "~/components/3D/model-controls";
 import ViewModel from "~/components/3D/view-model";
+import { type Model3D } from "~/server/db/schema"
 import { Button } from "~/components/ui/button";
-import { type Model3D } from "~/types/models";
 import { getModel3d } from "~/server/queries";
 import { Badge } from "~/components/ui/badge";
 import { Suspense } from "react";

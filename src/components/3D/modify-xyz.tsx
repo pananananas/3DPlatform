@@ -3,7 +3,7 @@ import {
   changeTranslation,
   changeCenterPoint,
 } from "~/server/queries";
-import { type Model3D } from "~/types/models";
+import { type Model3D } from "~/server/db/schema"
 import { Button } from "../ui/button";
 
 export default function ModifyXYZ({

@@ -1,8 +1,8 @@
 import { DeleteModelDialog } from "~/components/delete-model-dialog";
 import { UserCard } from "~/components/user-card";
+import { type Model3D } from "~/server/db/schema"
 import { Button } from "~/components/ui/button";
 import { LucideDownload } from "lucide-react";
-import { type Model3D } from "~/types/models";
 import { auth } from "@clerk/nextjs/server";
 import ModifyXYZ from "./modify-xyz";
 import Link from "next/link";

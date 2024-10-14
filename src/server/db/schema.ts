@@ -1,7 +1,7 @@
 // Example model schema from the Drizzle docs
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
-import { sql } from "drizzle-orm";
+import { type InferSelectModel, sql } from "drizzle-orm";
 import {
   index,
   pgTableCreator,
@@ -59,3 +59,5 @@ export const models3d = createTable(
   }),
 );
 
+
+export type Model3D = InferSelectModel<typeof models3d>
