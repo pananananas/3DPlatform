@@ -13,9 +13,9 @@ export default async function HomePage() {
           Discover 3D models created with AI
         </h2>
         <div className="flex items-center justify-center gap-4">
-          <Link href={`/tatoo`} className="">
+          <Link href={`/tattoo`} className="">
             <Button className="items-center justify-center" variant="outline">
-              Tatoo Preview
+              Tattoo Preview
             </Button>
           </Link>
           <Link href={`/models`} className="">

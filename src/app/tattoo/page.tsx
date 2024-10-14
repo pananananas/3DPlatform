@@ -1,6 +1,6 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
 import { useGLTF, useTexture, Decal, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 import type { Mesh } from "three";
 
@@ -23,9 +23,9 @@ export default function Test() {
 }
 
 
-function TatooControls() {
+function TattooControls() {
 
-  const { orbitX, orbitY, orbitZ } = useControls("Tatoo Placement", {
+  const { orbitX, orbitY, orbitZ } = useControls("Tattoo Placement", {
     orbitX: {
       name: "X",
       value: 0,
@@ -81,7 +81,7 @@ function TatooControls() {
 
 
 function Bun() {
-  const controls = TatooControls();
+  const controls = TattooControls();
   
   const { nodes } = useGLTF(
     "https://utfs.io/f/Q2s6v1FdRkt7PZrPQhODpXaogRnTBA36Shfk7GvZOIMiQrKw",
@@ -114,7 +114,7 @@ function Bun() {
 
 
 // function Snail() {
-//   const controls = TatooControls();
+//   const controls = TattooControls();
   
 //   const { nodes } = useGLTF(
 //     "https://utfs.io/f/Q2s6v1FdRkt7fFGzgYIcLbcim4grM2VhdIHWsq3Ztoy1nQ0E",
@@ -146,7 +146,7 @@ function Bun() {
 
 
 // function Face() {
-//   const controls = TatooControls();
+//   const controls = TattooControls();
   
 //   const { nodes } = useGLTF(
 //     "https://utfs.io/f/Q2s6v1FdRkt7W1EeK8tXjQ48RWtOfl6cTA5MokFHvgyaJEsK",
@@ -178,7 +178,7 @@ function Bun() {
 
 
 // function Bear() {
-//   const controls = TatooControls();
+//   const controls = TattooControls();
   
 //   const { nodes } = useGLTF(
 //     "https://utfs.io/f/Q2s6v1FdRkt7p7AiGzqzTHgxL2AS4J93cqmsMWtjeaUD1KIw",
