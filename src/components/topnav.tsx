@@ -22,8 +22,11 @@ export function TopNav() {
       </Link>
       <Link href="/tattoo" className="w-full justify-start">
         <Button variant="ghost" className="w-full justify-start">
-          TatToo
+          Tattoo
         </Button>
+      </Link>
+      <Link href="/inpainting">
+        <Button variant="ghost">Inpainting</Button>
       </Link>
 
       <SignedIn>
@@ -64,6 +67,9 @@ export function TopNav() {
               </Link>
               <Link href="/tattoo">
                 <Button variant="ghost">Tattoo</Button>
+              </Link>
+              <Link href="/inpainting">
+                <Button variant="ghost">Inpainting</Button>
               </Link>
               <SignedIn>
                 <Link href="/profile">
