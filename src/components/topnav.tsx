@@ -2,7 +2,7 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { AddModelDialog } from "./add-model-dialog";
 import { ThemeToggle } from "./theme-toggle";
-import Link from "next/link";;
+import Link from "next/link";
 import { IconBox } from "./icons/icon-box";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
@@ -25,8 +25,11 @@ export function TopNav() {
           Tattoo
         </Button>
       </Link>
-      <Link href="/inpainting">
+      {/* <Link href="/inpainting">
         <Button variant="ghost">Inpainting</Button>
+      </Link> */}
+      <Link href="/image">
+        <Button variant="ghost">Image</Button>
       </Link>
 
       <SignedIn>
@@ -68,8 +71,11 @@ export function TopNav() {
               <Link href="/tattoo">
                 <Button variant="ghost">Tattoo</Button>
               </Link>
-              <Link href="/inpainting">
+              {/* <Link href="/inpainting">
                 <Button variant="ghost">Inpainting</Button>
+              </Link> */}
+              <Link href="/image">
+                <Button variant="ghost">Image</Button>
               </Link>
               <SignedIn>
                 <Link href="/profile">
