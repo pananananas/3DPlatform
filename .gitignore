@@ -46,3 +46,4 @@ yarn-error.log*
 .idea
 
 /python/3d_models
+/python/imgs
