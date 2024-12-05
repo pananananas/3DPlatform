@@ -9,11 +9,24 @@ import { useControls } from "leva";
 function HandMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
 
+
+  // Moje:
+  // const [handTexture, depthTexture, tattooTexture] = useTexture(
+  //   [
+  //     "https://utfs.io/f/Q2s6v1FdRkt7ewCZTt6cfv9M4Ix0mkURyEYdlHjaBiTgp1bA",
+  //     "https://utfs.io/f/Q2s6v1FdRkt7fLPGVycLbcim4grM2VhdIHWsq3Ztoy1nQ0E9",   // DepthAnything
+  //   // "https://utfs.io/f/Q2s6v1FdRkt7ORtBZSTeXcmia5HKA3otjnFO9pEvZhIfrqPu",   // DepthPro
+  //     "https://utfs.io/f/Q2s6v1FdRkt7t06Vve512ofBlHsJOiWUvRm80PyeXnFIZEdx",
+  //   ]
+  // );
+  // Patryka:
   const [handTexture, depthTexture, tattooTexture] = useTexture(
     [
-      "https://utfs.io/f/Q2s6v1FdRkt7ewCZTt6cfv9M4Ix0mkURyEYdlHjaBiTgp1bA",
-      "https://utfs.io/f/Q2s6v1FdRkt7fLPGVycLbcim4grM2VhdIHWsq3Ztoy1nQ0E9",   // DepthAnything
-    // "https://utfs.io/f/Q2s6v1FdRkt7ORtBZSTeXcmia5HKA3otjnFO9pEvZhIfrqPu",   // DepthPro
+      "https://utfs.io/f/Q2s6v1FdRkt7iI7BGwyKaIkGBvWZY5eJcunhdUpoANV7bXS9",
+      // "https://utfs.io/f/Q2s6v1FdRkt70y3oWaIQwhbvX6ZlDARTe5ztSa7q49pUmMsi",   // DepthAnything
+      // "https://utfs.io/f/Q2s6v1FdRkt7zl5RePLDWg7tfA28l6eG4dEymkYn9KxVaHuC",   // Sapiens
+    "https://utfs.io/f/Q2s6v1FdRkt7OtNrEKTeXcmia5HKA3otjnFO9pEvZhIfrqPu",   // DepthPro
+    // "https://utfs.io/f/Q2s6v1FdRkt7C83kQGYaHA3yvBLnolr14MD6jgbSYkQiIVNR",  // Metric3Dv2
       "https://utfs.io/f/Q2s6v1FdRkt7t06Vve512ofBlHsJOiWUvRm80PyeXnFIZEdx",
     ]
   );
@@ -34,9 +47,11 @@ function HandMesh() {
 
   useEffect(() => {
     if (meshRef.current) {
-      meshRef.current.scale.set(width, height, 1);
+      meshRef.current.scale.set(width, height, 2);
       // Recompute normals after scaling if necessary
       // meshRef.current.geometry.computeVertexNormals();
+      // revert the - to + to flip the normals ONLY FOR METRIC3Dv2
+      // meshRef.current.geometry.scale(1, 1, -1);
     }
   }, [width, height]);
 
@@ -45,8 +60,8 @@ function HandMesh() {
       <meshStandardMaterial
         map={handTexture}
         displacementMap={depthTexture}
-        displacementScale={1} // Adjust as needed for visible depth
-        displacementBias={-0.25} // Optional: Adjust to fine-tune displacement
+        displacementScale={1.0} // Adjust as needed for visible depth
+        displacementBias={0.35} // Optional: Adjust to fine-tune displacement
         side={THREE.DoubleSide} // Ensure both sides are rendered
         metalness={0.5}
         roughness={0.5}
@@ -58,13 +73,13 @@ function HandMesh() {
         transparent
         opacity={0.2}
       /> */}
-      <Decal
+      {/* <Decal
         position={[controls.posX, controls.posY, controls.posZ]}
-        rotation={[0, 0, controls.rotation]}
+        rotation={[controls.rotationX, controls.rotationY, controls.rotationZ]}
         scale={controls.scale}
         // depthOffset={0.1} // Slightly offset to prevent z-fighting
         map={tattooTexture}
-      />
+      /> */}
         {/* <meshStandardMaterial
           map={tattooTexture}
           transparent={true}
@@ -83,7 +98,9 @@ function useTattooControls() {
     posX: { value: 0, min: -0.5, max: 0.5, step: 0.01 },
     posY: { value: 0, min: -0.5, max: 0.5, step: 0.01 },
     posZ: { value: 0.05, min: -0.5, max: 0.5, step: 0.001 }, // Slightly above the surface
-    rotation: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotationX: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotationY: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotationZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
     scale: { value: 0.2, min: 0.1, max: 0.5, step: 0.01 },
   });
 }
