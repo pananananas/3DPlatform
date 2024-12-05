@@ -23,9 +23,9 @@ function HandMesh() {
   const [handTexture, depthTexture, tattooTexture] = useTexture(
     [
       "https://utfs.io/f/Q2s6v1FdRkt7iI7BGwyKaIkGBvWZY5eJcunhdUpoANV7bXS9",
-      // "https://utfs.io/f/Q2s6v1FdRkt70y3oWaIQwhbvX6ZlDARTe5ztSa7q49pUmMsi",   // DepthAnything
+      "https://utfs.io/f/Q2s6v1FdRkt70y3oWaIQwhbvX6ZlDARTe5ztSa7q49pUmMsi",   // DepthAnything
       // "https://utfs.io/f/Q2s6v1FdRkt7zl5RePLDWg7tfA28l6eG4dEymkYn9KxVaHuC",   // Sapiens
-    "https://utfs.io/f/Q2s6v1FdRkt7OtNrEKTeXcmia5HKA3otjnFO9pEvZhIfrqPu",   // DepthPro
+    // "https://utfs.io/f/Q2s6v1FdRkt7OtNrEKTeXcmia5HKA3otjnFO9pEvZhIfrqPu",   // DepthPro
     // "https://utfs.io/f/Q2s6v1FdRkt7C83kQGYaHA3yvBLnolr14MD6jgbSYkQiIVNR",  // Metric3Dv2
       "https://utfs.io/f/Q2s6v1FdRkt7t06Vve512ofBlHsJOiWUvRm80PyeXnFIZEdx",
     ]

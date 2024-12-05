@@ -1,6 +1,6 @@
 "use client";
 import { useTexture, Decal, OrbitControls } from "@react-three/drei";
-import { type Group, Mesh, type Object3D, MeshStandardMaterial } from "three";
+import { Mesh, type Object3D, MeshStandardMaterial } from "three";
 import { useLoader, Canvas } from "@react-three/fiber";
 import { OBJLoader } from "three-stdlib";
 import { useControls } from "leva";
