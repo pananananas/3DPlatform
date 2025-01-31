@@ -61,7 +61,7 @@ export function TopNav() {
                 className="flex flex-row items-center justify-center gap-3 p-2"
               >
                 <IconBox />
-                <h1 className="text-lg font-bold md:text-xl">3D Platform</h1>
+                <h1 className="text-lg font-bold md:text-xl">TattooAI</h1>
               </Button>
             </Link>
             <div className="hidden md:flex md:flex-row md:items-center md:gap-2">

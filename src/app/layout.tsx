@@ -8,8 +8,8 @@ import { CSPostHogProvider } from "./_analytics/provider";
 import { ThemeProvider } from "~/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "3D Platform",
-  description: "A platform for 3D models",
+  title: "TattooAI",
+  description: "A platform for Displaying Tattoo Designs on 3D Models",
   icons: [{ rel: "icon", url: "/cube.png" }],
 };
 
