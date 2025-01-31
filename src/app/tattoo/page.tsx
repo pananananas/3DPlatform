@@ -29,7 +29,7 @@ export default function Test() {
   });
 
   return (
-    <Canvas shadows camera={{ position: [-2.5, 6, -10], fov: 10 }}>
+    <Canvas shadows camera={{ position: [10, 4, 10], fov: 10 }}>
       <color attach="background" args={["#131313"]} />
       <ambientLight intensity={ambientIntensity} />
       <pointLight decay={0} position={[-10, 0, -5]} intensity={pointIntensity} />
