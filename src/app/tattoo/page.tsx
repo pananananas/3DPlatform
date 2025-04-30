@@ -174,7 +174,7 @@ function Hand() {
           color: 0xcccccc,
         }));
 
-  const handleMeshClick = (event: ThreeEvent<MouseEvent>) => {
+  const handleMeshPointerDown = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
 
     const { point, face, object } = event;
@@ -192,16 +192,12 @@ function Hand() {
       .clone()
       .transformDirection(object.matrixWorld)
       .normalize();
-    // console.log("Face Normal (World Space):", worldNormal.toArray());
 
-    // 3. Calculate Local Position (for Decal placement)
-    // Add a small offset along the world normal *before* converting to local
-    const offsetDistance = 0.01; // Small offset to prevent z-fighting
+    const offsetDistance = 0.1; // Z offset aby oddalić decal box od powierzchni
     const pointWithOffset = point
       .clone()
-      .add(worldNormal.clone().multiplyScalar(offsetDistance)); // Clone worldNormal here
+      .add(worldNormal.clone().multiplyScalar(offsetDistance));
     const localPosition = meshRef.current.worldToLocal(pointWithOffset.clone());
-    // console.log("Target Decal Position (Local Space):",localPosition.toArray());
     setDecalPosition(localPosition);
 
     // 4. Calculate Rotation based on World Normal
@@ -213,15 +209,9 @@ function Hand() {
     // This orients the object's -Z axis towards the surface (along the negative normal).
     rotationMatrix.lookAt(eyePosition, point, upVector);
 
-    // Extract Euler rotation from the matrix
     const calculatedRotation = new THREE.Euler().setFromRotationMatrix(
       rotationMatrix,
     );
-
-    // // console.log(
-    //   "Calculated Decal Rotation (Euler):",
-    //   calculatedRotation.toArray().slice(0, 3),
-    // ); // Log X, Y, Z
     setDecalRotation(calculatedRotation);
   };
 
@@ -234,7 +224,7 @@ function Hand() {
       material={material}
       dispose={null}
       position={[0, 1, 0]}
-      onClick={handleMeshClick}
+      onPointerDown={handleMeshPointerDown}
     >
       {decalPosition && decalRotation && (
         <Decal
